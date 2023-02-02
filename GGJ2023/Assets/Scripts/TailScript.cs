@@ -60,6 +60,12 @@ public class TailScript : MonoBehaviour
 		line.SetPosition(points.Count - 1, head.transform.position);
 	}
 
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Obstacle") {
+            Debug.Log("Game Over");
+        }
+    }
+
 	// public void DisableDrawing()
 	// {
 	// 	isDrawing = false;
