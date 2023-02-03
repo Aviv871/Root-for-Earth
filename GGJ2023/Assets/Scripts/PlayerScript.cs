@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
         // individual score
         if (isAlive)
         {
-            score += Time.deltaTime * scoreSpeed;
+            score += Time.deltaTime * scoreSpeed * GetComponentInChildren<HeadScript>().forwardSpeed;
         }
     }
 
