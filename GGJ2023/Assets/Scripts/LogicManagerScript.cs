@@ -31,7 +31,7 @@ public class LogicManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        generatePlayers(2);
+        generatePlayers(ButtonBehaviour.playerCount);
     }
 
     // Update is called once per frame
