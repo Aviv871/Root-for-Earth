@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358003538}
   - component: {fileID: 1358003537}
-  - component: {fileID: 1358003539}
+  - component: {fileID: 1358003540}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -578,8 +578,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1358003539
-CapsuleCollider2D:
+--- !u!58 &1358003540
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -610,9 +610,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.044562362, y: 0.13234283}
-  m_Size: {x: 8.183632, y: 7.8316793}
-  m_Direction: 1
+  m_Offset: {x: -0.049003363, y: 0.10557127}
+  serializedVersion: 2
+  m_Radius: 3.9411902
 --- !u!1001 &1497787368
 PrefabInstance:
   m_ObjectHideFlags: 0
