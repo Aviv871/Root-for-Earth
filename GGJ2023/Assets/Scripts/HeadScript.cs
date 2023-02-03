@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum MovementControls 
+public enum MovementControls 
 {
   Arrows,
-  ASDW
+  AS,
+  BN,
+  OP,
 }
 
 public class HeadScript : MonoBehaviour
@@ -17,8 +19,7 @@ public class HeadScript : MonoBehaviour
 	private float angularSpeed; 
     private EdgeCollider2D col;
 
-    [SerializeField]
-    private MovementControls movementControls;
+    public MovementControls movementControls;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +30,19 @@ public class HeadScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movementControls == MovementControls.ASDW) {
-		    horizontal = Input.GetAxis("Horizontal AD");
-        } else {
+        if (movementControls == MovementControls.Arrows) {
             horizontal = Input.GetAxis("Horizontal");
+        }
+        else if (movementControls == MovementControls.AS) {
+		    horizontal = Input.GetAxis("Horizontal AS");
+        }
+        else if (movementControls == MovementControls.BN) {
+            horizontal = Input.GetAxis("Horizontal BN");
+        }
+        else if (movementControls == MovementControls.OP) {
+            horizontal = Input.GetAxis("Horizontal OP");
+        } else {
+            Debug.Log("Failed to determine movement controls set");
         }
     }
 
