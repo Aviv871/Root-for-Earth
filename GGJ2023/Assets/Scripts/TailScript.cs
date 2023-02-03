@@ -8,19 +8,20 @@ public class TailScript : MonoBehaviour
 
     public float pointSpacing = 0.1f;
 	private LineRenderer line;
-
+    
+	[SerializeField]
 	private List<Vector2> points;
 	private EdgeCollider2D col;
 	[SerializeField]
 	private bool isDrawing = true;
-	private HeadScript head;
+	private Transform headTransform;
 
 	
 	void Start()
 	{
 		line = GetComponent<LineRenderer>();
 		col = GetComponent<EdgeCollider2D>();
-		head = GetComponentInParent<HeadScript>();
+		headTransform = GetComponentInParent<PlayerScript>().headTransform;
 		
 		points = new List<Vector2>();
 	}
@@ -39,7 +40,7 @@ public class TailScript : MonoBehaviour
 		{
 			return;
 		}
-		if (Vector2.Distance(points.Last(), head.transform.position) > pointSpacing)
+		if (Vector2.Distance(points.Last(), headTransform.position) > pointSpacing)
 		{
 			SetPoint();
 		}
@@ -55,16 +56,10 @@ public class TailScript : MonoBehaviour
 		{
 			col.points = points.ToArray<Vector2>();
 		}
-		points.Add(head.transform.position);
+		points.Add(headTransform.position);
 		line.positionCount = points.Count;
-		line.SetPosition(points.Count - 1, head.transform.position);
+		line.SetPosition(points.Count - 1, headTransform.position);
 	}
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Obstacle") {
-            Debug.Log("Game Over");
-        }
-    }
 
 	// public void DisableDrawing()
 	// {
