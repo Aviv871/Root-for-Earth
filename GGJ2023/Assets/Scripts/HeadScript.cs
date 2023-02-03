@@ -12,8 +12,7 @@ public class HeadScript : MonoBehaviour
 {
 	private float horizontal;
     
-    [SerializeField]
-	private float forwardSpeed; 
+	public float forwardSpeed; 
     [SerializeField]
 	private float angularSpeed; 
     private EdgeCollider2D col;

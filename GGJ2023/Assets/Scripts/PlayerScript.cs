@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
+    public float speedBoostFactor = 1.5f;
+    public float speedBoostTime = 3f;
     public bool isAlive = true;
 
     public Transform headTransform;
@@ -31,5 +33,17 @@ public class PlayerScript : MonoBehaviour
         Collectable collectable = obj.GetComponent<Collectable>();
         Destroy(obj);
         Debug.Log(nameof(collectable.item));
+        switch (collectable.item) {
+            case CollectableItem.WATER:
+                StartCoroutine("boostSpeed");
+                break;
+        }
+    }
+
+    public IEnumerator boostSpeed() {
+        GetComponentInChildren<HeadScript>().forwardSpeed *= speedBoostFactor;
+        yield return new WaitForSeconds(speedBoostTime);
+        GetComponentInChildren<HeadScript>().forwardSpeed /= speedBoostFactor;
+
     }
 }

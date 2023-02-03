@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
  public enum CollectableItem {
-    ITEM_1,
+    WATER,
     ITEM_2,
 }
 
