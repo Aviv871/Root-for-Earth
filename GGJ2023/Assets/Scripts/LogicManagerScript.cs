@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogicManagerScript : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class LogicManagerScript : MonoBehaviour
     [SerializeField] private List<GameObject> startingPositions;
     public List<GameObject> players;
     public float totalScore;
+    public Text scoreText;
+
     void generatePlayers(int playerCount) {
         for (int i = 0; i < playerCount; i++) {
             Debug.Log("Generating player " + i);
@@ -27,11 +31,13 @@ public class LogicManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // update total score
         totalScore = 0;
         foreach (GameObject player in players)
         {
             totalScore += player.GetComponent<PlayerScript>().score;
         }
+        scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
     }
     public void GameOver() {
         Debug.Log("Game Over");
