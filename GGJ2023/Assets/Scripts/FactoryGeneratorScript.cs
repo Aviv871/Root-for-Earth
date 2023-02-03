@@ -29,7 +29,8 @@ public class FactoryGeneratorScript : MonoBehaviour
         {
             int degrees = Random.Range(0, 360);
             Vector3 position = generatePosition(degrees);
-            if (!Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer")))
+            Collider2D collision = Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer"));
+            if (!collision)
             {
                 Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
                 spawnCounter = 0;
