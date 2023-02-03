@@ -13,7 +13,7 @@ public class BranchHeadScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        angularSpeed = Random.Range(-100, 100);
+        angularSpeed = Random.Range(-80, 80);
         int horizontal_seed = Random.Range(0, 2);
         if (horizontal_seed == 1) {
             horizontal = 1;
@@ -25,9 +25,9 @@ public class BranchHeadScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponentInParent<BranchInstanceScript>().BranchTimeToLive % 200 == 0) {
-            angularSpeed = Random.Range(-100, 100);
-        }
+        // if (GetComponentInParent<BranchInstanceScript>().BranchTimeToLive % 200 == 0) {
+        //     angularSpeed = Random.Range(-40, 40);
+        // }
     }
 
     void FixedUpdate() {
