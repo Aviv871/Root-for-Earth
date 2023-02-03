@@ -700,8 +700,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 193095153455110599, guid: df240c78c1f88094aaa64be25c4a59a9, type: 3}
   startingPositions:
   - {fileID: 84309590}
-  - {fileID: 1218672592}
   - {fileID: 143215579}
+  - {fileID: 1218672592}
   - {fileID: 866586938}
   players: []
 --- !u!4 &1887238931
