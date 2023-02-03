@@ -39,7 +39,7 @@
 *.jpg filter=lfs -crlf
 *.mp3 filter=lfs -crlf
 *.mp4 filter=lfs -crlf
-*.png filter=lfs -crlf
+#*.png filter=lfs -crlf
 *.psd filter=lfs -crlf
 *.tga filter=lfs -crlf
 *.tif filter=lfs -crlf
