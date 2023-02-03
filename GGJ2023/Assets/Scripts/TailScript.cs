@@ -59,8 +59,13 @@ public class TailScript : MonoBehaviour
 		line.positionCount = points.Count;
 		line.SetPosition(points.Count - 1, headTransform.position);
 
-		// Add small branch
-
+		smallBranchCountdown--;
+		if (smallBranchCountdown < 1) {
+			// Add small branch
+			// TODO: SPWAN
+			smallBranchCountdown = smallBranchSpacing +  Random.Range(1, smallBranchSpacing / 2) - smallBranchSpacing / 2;
+			Debug.Log("Random");
+		}
 	}
 
 	public void DisableDrawing()
