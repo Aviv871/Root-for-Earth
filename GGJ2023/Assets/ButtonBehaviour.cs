@@ -19,7 +19,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("YuvalAndAvivScene");
+        SceneManager.LoadScene("Main");
     }
 
     public void Instructions()
