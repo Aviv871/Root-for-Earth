@@ -64,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void Respawn(GameObject originTree) {
+        Debug.Log("RESPAWNING");
         TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
         if (tailScript) {
             // So we don't collide with the old tail, we do it outside the coroutine
