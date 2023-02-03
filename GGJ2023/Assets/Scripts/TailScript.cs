@@ -23,6 +23,9 @@ public class TailScript : MonoBehaviour
 	
 	[SerializeField]
 	private List<GameObject> smallBranches;
+
+	// This keeps the original tree which spawned this specific tail, in order to be removed with the tail.
+	public GameObject originTree;
 	
 	void Start()
 	{
@@ -97,6 +100,10 @@ public class TailScript : MonoBehaviour
 		}
 
 		Destroy(gameObject);
+
+		if (originTree) {
+			Destroy(originTree);
+		}
 
 	}
 }

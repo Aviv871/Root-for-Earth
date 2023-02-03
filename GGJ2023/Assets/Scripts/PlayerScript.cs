@@ -63,13 +63,14 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    public void Respawn() {
+    public void Respawn(GameObject originTree) {
         TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
         if (tailScript) {
             StartCoroutine(tailScript.fadeOutAndDestroy());
         }
         
-        Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
+        GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
+        newTail.GetComponent<TailScript>().originTree = originTree;
         headTransform.Rotate(new Vector3(0, 0, 180));
     }
 }

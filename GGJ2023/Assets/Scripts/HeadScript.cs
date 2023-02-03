@@ -73,7 +73,7 @@ public class HeadScript : MonoBehaviour
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
             }
-            GetComponentInParent<PlayerScript>().Respawn();
+            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if (other.tag == "Obstacle") {
