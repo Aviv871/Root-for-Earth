@@ -49,4 +49,10 @@ public class HeadScript : MonoBehaviour
             GetComponentInParent<PlayerScript>().Collision();
         }
     }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "Planet") {
+            GetComponentInParent<PlayerScript>().Collision();
+        }
+    }
 }

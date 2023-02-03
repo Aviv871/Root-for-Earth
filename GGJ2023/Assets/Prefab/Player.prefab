@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f8d2fa649aed949a8be8531a18a8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointSpacing: 0.00001
+  pointSpacing: 0.001
   points: []
   isDrawing: 1
-  smallBranch: {fileID: 0}
-  smallBranchSpacing: 10
+  smallBranch: {fileID: 3325366448560704761, guid: 5b4b98254ce6810439548b13b353318c, type: 3}
+  smallBranchSpacing: 100
