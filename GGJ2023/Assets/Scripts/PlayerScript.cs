@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     public float scoreSpeed = 1;
     private LogicManagerScript logicManager;
 
+    public GameObject tailObject;
+
     void Awake()
     {
         headTransform = GetComponentInChildren<HeadScript>().transform;
@@ -59,5 +61,15 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(speedBoostTime);
         GetComponentInChildren<HeadScript>().forwardSpeed /= speedBoostFactor;
 
+    }
+
+    public void Respawn() {
+        TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
+        if (tailScript) {
+            StartCoroutine(tailScript.fadeOutAndDestroy());
+        }
+        
+        Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
+        headTransform.Rotate(new Vector3(0, 0, 180));
     }
 }
