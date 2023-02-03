@@ -11,6 +11,10 @@ public class LogicManagerScript : MonoBehaviour
     public List<GameObject> players;
     public float totalScore;
     public Text scoreText;
+    public GameObject gameOverText;
+    public GameObject playAgainButton;
+    public GameObject mainMenuButton;
+    private bool isGameOver = false;
 
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
@@ -32,20 +36,41 @@ public class LogicManagerScript : MonoBehaviour
     void Start()
     {
         generatePlayers(ButtonBehaviour.playerCount);
+        gameOverText.SetActive(false);
+        playAgainButton.SetActive(false);
+        mainMenuButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         // update total score
+        if (isGameOver)
+        {
+            return;
+        }
         totalScore = 0;
+        bool isGameoverInner = true;
         foreach (GameObject player in players)
         {
-            totalScore += player.GetComponent<PlayerScript>().score;
+            var player_script = player.GetComponent<PlayerScript>();
+            totalScore += player_script.score;
+            if (player_script.isAlive)
+            {
+                isGameoverInner = false;
+            }
         }
         scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
+        if (isGameoverInner)
+        {
+            GameOver();
+        }
     }
-    public void GameOver() {
+    private void GameOver() {
         Debug.Log("Game Over");
+        isGameOver = true;
+        gameOverText.SetActive(true);
+        playAgainButton.SetActive(true);
+        mainMenuButton.SetActive(true);
     }
 }
