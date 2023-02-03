@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class FactoryScript : MonoBehaviour
 {
-    [SerializeField] private float animationSpeed = 0.3f;
+    private Sprite[] animationFrames;
+    [SerializeField] private float animationSpeed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animationFrames = Resources.LoadAll<Sprite>("factory-sprite");
+        if (animationFrames.Length == 0) {
+            throw new System.Exception("Can't find sprites!");
+        }
     }
 
     // Update is called once per frame
@@ -19,12 +23,16 @@ public class FactoryScript : MonoBehaviour
     }
 
     public IEnumerator turnIntoTree() {
-        yield return new WaitForSeconds(animationSpeed);
-        Sprite[] animation = Resources.LoadAll<Sprite>("factory-sprite");
-        if (animation.Length == 0) {
-            throw new System.Exception("Can't find sprites!");
-        }
         SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-        // renderer.sprite = 
+        for (int i = 0; i < animationFrames.Length; i++)
+        {
+            renderer.sprite = animationFrames[i];
+            if (i == 2) {
+                GameObject smoke = gameObject.GetComponentInChildren<ParticleSystem>().gameObject;
+                Destroy(smoke);
+            }
+            yield return new WaitForSeconds(animationSpeed);
+        }
+        
     }
 }
