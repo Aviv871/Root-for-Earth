@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 193095152801930744}
   - component: {fileID: 193095152801930745}
   - component: {fileID: 193095152801930746}
-  - component: {fileID: 193095152801930741}
+  - component: {fileID: 6191186808212199268}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -129,8 +129,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &193095152801930741
-CircleCollider2D:
+--- !u!70 &6191186808212199268
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,12 +158,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.75
+  m_Offset: {x: -0.040456176, y: 1.1282896}
+  m_Size: {x: 0.7872634, y: 2.2565792}
+  m_Direction: 0
 --- !u!1 &193095153455110599
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193095153455380985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3011372, y: 0.46466365, z: -0.07624774}
+  m_LocalPosition: {x: -2.3011372, y: -2.93, z: -0.07624774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
