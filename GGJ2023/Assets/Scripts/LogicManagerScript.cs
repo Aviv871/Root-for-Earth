@@ -38,6 +38,10 @@ public class LogicManagerScript : MonoBehaviour
         if (ButtonBehaviour.playerCount <= 0) {
             ButtonBehaviour.playerCount = 2;
         }
+        if (ButtonBehaviour.playerCount == 0) {
+            Debug.Log("Player count is 0");
+            ButtonBehaviour.playerCount = 2;
+        }
         generatePlayers(ButtonBehaviour.playerCount);
         gameOverText.SetActive(false);
         playAgainButton.SetActive(false);
