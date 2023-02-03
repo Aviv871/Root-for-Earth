@@ -56,14 +56,16 @@ public class HeadScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         AudioSource sound = other.gameObject.GetComponent<AudioSource>();
         if (sound) {
-            Debug.Log("HERE");
             sound.Play();
         }
-        if (other.tag == "Obstacle") {
-            GetComponentInParent<PlayerScript>().Collision();
-        }
-        else if (other.tag == "Collectable") {
+
+        if (other.tag == "Factory") {
+            Destroy(other);
+            GetComponentInParent<PlayerScript>().Respawn();
+        } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
+        } else if (other.tag == "Obstacle") {
+            GetComponentInParent<PlayerScript>().Collision();
         }
     }
 

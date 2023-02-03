@@ -6,7 +6,7 @@ using System.Linq;
 public class TailScript : MonoBehaviour
 {
 
-    public float pointSpacing = 0.1f;
+	public float pointSpacing = 0.1f;
 	private LineRenderer line;
     
 	[SerializeField]
@@ -16,9 +16,13 @@ public class TailScript : MonoBehaviour
 	private bool isDrawing = true;
 	private Transform headTransform;
 
+	// Small branches
 	private int smallBranchCountdown = 1;
 	[SerializeField] private GameObject smallBranch;
 	[SerializeField] private int smallBranchSpacing = 10;
+	
+	[SerializeField]
+	private List<GameObject> smallBranches;
 	
 	void Start()
 	{
@@ -61,8 +65,10 @@ public class TailScript : MonoBehaviour
 
 		smallBranchCountdown--;
 		if (smallBranchCountdown < 1) {
-			Instantiate(smallBranch, headTransform.transform.position, headTransform.transform.rotation * Quaternion.AngleAxis(Random.Range(0, 2) * 180, transform.forward));
+			GameObject newSmallBranch = Instantiate(smallBranch, headTransform.transform.position, 
+					headTransform.transform.rotation * Quaternion.AngleAxis(Random.Range(0, 2) * 180, transform.forward));
 			smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(1, smallBranchSpacing / 2);
+			smallBranches.Add(newSmallBranch);
 		}
 	}
 
@@ -80,5 +86,17 @@ public class TailScript : MonoBehaviour
 		{
 			col.points = points.ToArray<Vector2>();
 		}
+	}
+
+	public IEnumerator fadeOutAndDestroy() {
+		yield return new WaitForSeconds(0);
+		foreach (GameObject smallBranch in smallBranches)
+		{
+			Destroy(smallBranch);
+		}
+		Debug.Log("RESETTING TAIL");
+		
+		Destroy(gameObject);
+
 	}
 }
