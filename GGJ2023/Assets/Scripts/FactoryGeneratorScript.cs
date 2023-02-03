@@ -32,7 +32,6 @@ public class FactoryGeneratorScript : MonoBehaviour
             Vector3 position = generatePosition(degrees);
             if (!Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer")))
             {
-                Debug.Log("overlap");
                 Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
                 spawnCounter = 0;
             }

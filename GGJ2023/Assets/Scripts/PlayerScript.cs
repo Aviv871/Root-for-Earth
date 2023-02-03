@@ -66,7 +66,7 @@ public class PlayerScript : MonoBehaviour
     public void Respawn(GameObject originTree) {
         TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
         if (tailScript) {
-            StartCoroutine(tailScript.fadeOutAndDestroy());
+            StartCoroutine(tailScript.FadeOutAndDestroy());
         }
         
         GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);

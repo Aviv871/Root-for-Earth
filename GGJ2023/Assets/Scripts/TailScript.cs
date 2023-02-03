@@ -26,6 +26,9 @@ public class TailScript : MonoBehaviour
 
 	// This keeps the original tree which spawned this specific tail, in order to be removed with the tail.
 	public GameObject originTree;
+
+	private int fadeOutSteps = 20;
+	private float fadeOutStepDuration = 0.3f; // In seconds
 	
 	void Start()
 	{
@@ -91,12 +94,38 @@ public class TailScript : MonoBehaviour
 		}
 	}
 
-	public IEnumerator fadeOutAndDestroy() {
-		// TODO: nice fade-out
-		yield return new WaitForSeconds(0);
+	public IEnumerator FadeOutAndDestroy() {
+		// So we don't collide with ourselves
+		gameObject.GetComponent<EdgeCollider2D>().enabled = false;
+
+		DisableDrawing();
+
+		for (int i = 0; i < fadeOutSteps; i++)
+		{
+			Gradient fadeOutGradient = new Gradient();
+        
+			GradientAlphaKey[] alphaKey = new GradientAlphaKey[2];
+			alphaKey[0].alpha = 0.0f;
+			alphaKey[0].time = 0.0f;
+			alphaKey[1].alpha = 1f - (1f/fadeOutSteps) * i;
+			alphaKey[1].time = 1f - (1f/fadeOutSteps) * i;
+
+			fadeOutGradient.alphaKeys = alphaKey;
+
+			LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+			fadeOutGradient.colorKeys = lineRenderer.colorGradient.colorKeys;
+
+			lineRenderer.colorGradient = fadeOutGradient;
+			foreach (GameObject smallBranch in smallBranches)
+			{
+				smallBranch.gameObject.GetComponent<LineRenderer>().colorGradient = fadeOutGradient;
+			}
+			yield return new WaitForSeconds(fadeOutStepDuration);
+		}
+
 		foreach (GameObject smallBranch in smallBranches)
 		{
-			Destroy(smallBranch);
+			Destroy(smallBranch.gameObject);
 		}
 
 		Destroy(gameObject);
