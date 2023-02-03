@@ -95,9 +95,6 @@ public class TailScript : MonoBehaviour
 	}
 
 	public IEnumerator FadeOutAndDestroy() {
-		// So we don't collide with ourselves
-		gameObject.GetComponent<EdgeCollider2D>().enabled = false;
-
 		// Old tail shouldn't follow the new head
 		DisableDrawing();
 
