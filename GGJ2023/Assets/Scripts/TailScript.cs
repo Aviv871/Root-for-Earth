@@ -57,19 +57,19 @@ public class TailScript : MonoBehaviour
 		line.SetPosition(points.Count - 1, headTransform.position);
 	}
 
-	// public void DisableDrawing()
-	// {
-	// 	isDrawing = false;
-	// 	StartCoroutine(SynchronizeCollider());
-	// }
+	public void DisableDrawing()
+	{
+		isDrawing = false;
+		StartCoroutine(SynchronizeCollider());
+	}
 
-	// IEnumerator SynchronizeCollider()
-	// {
-	// 	yield return new WaitForSeconds(0.2f);
+	IEnumerator SynchronizeCollider()
+	{
+		yield return new WaitForSeconds(0.2f);
 
-	// 	if (points.Count > 1)
-	// 	{
-	// 		col.points = points.ToArray<Vector2>();
-	// 	}
-	// }
+		if (points.Count > 1)
+		{
+			col.points = points.ToArray<Vector2>();
+		}
+	}
 }
