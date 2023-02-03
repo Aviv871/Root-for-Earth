@@ -40,10 +40,10 @@ public class TailScript : MonoBehaviour
 		{
 			return;
 		}
-		// if (Vector2.Distance(points.Last(), headTransform.position) > pointSpacing)
-		// {
-		SetPoint();
-		// }
+		if (Vector2.Distance(points.Last(), headTransform.position) > pointSpacing)
+		{
+			SetPoint();
+		}
 	}
 
 	void SetPoint()
