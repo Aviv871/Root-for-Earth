@@ -124,7 +124,6 @@ public class TailScript : MonoBehaviour
 
 					// Fade out the small branch tails
 					fadeOutGradient = GetLineGradientFadeOut(lineRenderer, i, fadeOutStepsForSmallBranches, true);
-					Debug.Log("Step " + i + " out of " + fadeOutStepsForSmallBranches + " for small branches, gradient = " + fadeOutGradient.alphaKeys[1].time.ToString());
 					smallBranch.gameObject.GetComponentInChildren<LineRenderer>().colorGradient = fadeOutGradient;
 				}
 			}
@@ -168,7 +167,6 @@ public class TailScript : MonoBehaviour
 
 	fadeOutGradient.colorKeys = lineRenderer.colorGradient.colorKeys;
 
-	Debug.Log("Step = " + step.ToString() + "Alpha time: " + alphaKey[1].time.ToString());
 	return fadeOutGradient;
   }
 }

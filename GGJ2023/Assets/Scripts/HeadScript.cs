@@ -68,22 +68,24 @@ public class HeadScript : MonoBehaviour
         }
 
         if (other.tag == "Factory") {
-            // Destroy(other.gameObject);
+            Debug.Log("Caught collision with factory");
+            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
                 GetComponentInParent<PlayerScript>().DestroyedFactory();
             }
-            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if (other.tag == "Obstacle") {
+            Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
             GetComponentInParent<PlayerScript>().Collision();
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Planet") {
+            Debug.Log("collision with planet");
             GetComponentInParent<PlayerScript>().Collision();
             // TODO: Spwan baby tree
         }
