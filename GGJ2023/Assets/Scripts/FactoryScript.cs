@@ -14,10 +14,11 @@ public class FactoryScript : MonoBehaviour
     private float spawnCounter;
     private float factoryRadius;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update0
     void Start()
     {
-        factoryRadius = factory.GetComponent<Collider2D>().bounds.extents.x;
+        factoryRadius = Mathf.Sqrt(Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.x/2, 2) + Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.y/2, 2));
+        Debug.Log(factoryRadius);
         radius = planet.GetComponent<CircleCollider2D>().radius;
         spawnCounter = factorySpawnRate;
     }
@@ -29,13 +30,13 @@ public class FactoryScript : MonoBehaviour
         {
             int degrees = Random.Range(0, 360);
             Vector3 position = generatePosition(degrees);
-            while (Physics2D.OverlapCircle(position, factoryRadius, LayerMask.GetMask("FactoryLayer")))
+            if (!Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer")))
             {
-                degrees = Random.Range(0, 360);
-                position = generatePosition(degrees);
+                Debug.Log("overlap");
+                Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
+                spawnCounter = 0;
             }
-            Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward));
-            spawnCounter = 0;
+
         } 
         else 
         {
