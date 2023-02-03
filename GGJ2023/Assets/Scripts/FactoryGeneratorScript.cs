@@ -18,7 +18,6 @@ public class FactoryGeneratorScript : MonoBehaviour
     void Start()
     {
         factoryRadius = Mathf.Sqrt(Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.x/2, 2) + Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.y/2, 2));
-        Debug.Log(factoryRadius);
         radius = planet.GetComponent<CircleCollider2D>().radius;
         spawnCounter = factorySpawnRate;
     }
@@ -30,9 +29,9 @@ public class FactoryGeneratorScript : MonoBehaviour
         {
             int degrees = Random.Range(0, 360);
             Vector3 position = generatePosition(degrees);
-            if (!Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer")))
+            Collider2D collision = Physics2D.OverlapCircle(position, factoryRadius * 2, LayerMask.GetMask("FactoryLayer"));
+            if (!collision)
             {
-                Debug.Log("overlap");
                 Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
                 spawnCounter = 0;
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FactoryScript : MonoBehaviour
 {
     private Sprite[] animationFrames;
-    [SerializeField] private float animationSpeed = 0.1f;
+    [SerializeField] private float animationSpeed = 0.06f;
 
     // Start is called before the first frame update
     void Start()

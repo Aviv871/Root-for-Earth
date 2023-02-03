@@ -10,7 +10,8 @@ public class LogicManagerScript : MonoBehaviour
     [SerializeField] private List<GameObject> startingPositions;
     public List<GameObject> players;
     public float totalScore;
-    public Text scoreText;
+    public float factoryScore;
+    public TextMeshProUGUI scoreText;
     public int waterCount;
     public int rockCount;
     public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
@@ -32,9 +33,13 @@ public class LogicManagerScript : MonoBehaviour
             Debug.Log("Generating player " + i);
             startingPositions[i].gameObject.SetActive(true);
             GameObject player = Instantiate(playerPrefab);
-            player.GetComponentInChildren<HeadScript>().transform.position = startingPositions[i].transform.position;
-            player.GetComponentInChildren<HeadScript>().movementControls = (MovementControls)i;
-            player.GetComponentInChildren<HeadScript>().transform.rotation = Quaternion.Euler(0,0,180) * (startingPositions[i].transform.rotation);
+            HeadScript headScript = player.GetComponentInChildren<HeadScript>();
+            headScript.transform.position = startingPositions[i].transform.position;
+            headScript.transform.rotation = Quaternion.Euler(0,0,180) * (startingPositions[i].transform.rotation);
+            headScript.movementControls = (MovementControls)i;
+            
+            // Assign the originTree from the starting point to the tail in order to be destroyed later
+            player.GetComponentInChildren<TailScript>().originTree = startingPositions[i].GetComponentInChildren<SpriteRenderer>().gameObject;
             players.Add(player);
         }
     }
