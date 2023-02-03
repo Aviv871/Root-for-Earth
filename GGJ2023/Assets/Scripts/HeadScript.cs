@@ -60,7 +60,7 @@ public class HeadScript : MonoBehaviour
         }
 
         if (other.tag == "Factory") {
-            Destroy(other);
+            Destroy(other.gameObject);
             GetComponentInParent<PlayerScript>().Respawn();
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
