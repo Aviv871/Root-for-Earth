@@ -21,10 +21,12 @@ public class HeadScript : MonoBehaviour
 
     public MovementControls movementControls;
 
+    private bool isTouched;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        isTouched = false;
     }
 
     // Update is called once per frame
@@ -43,6 +45,12 @@ public class HeadScript : MonoBehaviour
             horizontal = Input.GetAxis("Horizontal OP");
         } else {
             Debug.Log("Failed to determine movement controls set");
+        }
+
+        if (!isTouched && horizontal == 0) {
+            horizontal = Random.Range(-0.3f, 0.3f);
+        } else {
+            isTouched = true;
         }
     }
 
