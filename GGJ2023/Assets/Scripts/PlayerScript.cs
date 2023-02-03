@@ -32,7 +32,6 @@ public class PlayerScript : MonoBehaviour
 
     public void Collision() {
         isAlive = false;
-        logicManager.GameOver();
     }
 
     public void Collect(GameObject obj) {
