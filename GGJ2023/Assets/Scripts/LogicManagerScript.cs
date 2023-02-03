@@ -13,6 +13,8 @@ public class LogicManagerScript : MonoBehaviour
     public Text scoreText;
     public int waterCount;
     public int rockCount;
+    public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
+    public float undergroundDistanceObejcts = 1f; // raius clean of object
     public GameObject gameOverText;
     public GameObject playAgainButton;
     public GameObject mainMenuButton;
@@ -39,19 +41,27 @@ public class LogicManagerScript : MonoBehaviour
 
     void GenerateUndergroundObjects(int amount2Generate, GameObject component2Generate)
     {
-        float distance = 2.8f; // radius from center to generate in
-        float obstacleRadius = 1f; // raius of object
         int amountGenerated = 0;
+        int amountFails = 0;
 
         while(amountGenerated < amount2Generate)
         {
-            Vector3 location = Random.insideUnitCircle * distance;
-            Collider2D collisionWithAnother = Physics2D.OverlapCircle(location, obstacleRadius, LayerMask.GetMask("ObstacleLayer"));
+            Vector3 location = Random.insideUnitCircle * undergroundRadiusObejcts;
+            Collider2D collisionWithAnother = Physics2D.OverlapCircle(location, undergroundDistanceObejcts, LayerMask.GetMask("ObstacleLayer"));
             //If the Collision is empty then, we can instantiate
             if (collisionWithAnother == false)
             {
                 Instantiate(component2Generate, location, Quaternion.identity);
                 amountGenerated++;
+            }
+            else
+            {
+                amountFails++;
+                if (amountFails > 100)
+                {
+                    Debug.Log("Failed to generate objects too many times");
+                    break;
+                }
             }
         }
     }

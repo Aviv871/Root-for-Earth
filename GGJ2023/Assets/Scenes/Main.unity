@@ -1633,6 +1633,8 @@ MonoBehaviour:
   scoreText: {fileID: 1636773513}
   waterCount: 5
   rockCount: 5
+  undergroundRadiusObejcts: 2.8
+  undergroundDistanceObejcts: 1
   gameOverText: {fileID: 526552647}
   playAgainButton: {fileID: 1477250236}
   mainMenuButton: {fileID: 709897951}
