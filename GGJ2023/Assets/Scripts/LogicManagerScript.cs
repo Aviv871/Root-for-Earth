@@ -10,6 +10,7 @@ public class LogicManagerScript : MonoBehaviour
     [SerializeField] private List<GameObject> startingPositions;
     public List<GameObject> players;
     public float totalScore;
+    public float factoryScore;
     public Text scoreText;
     public int waterCount;
     public int rockCount;
