@@ -307,13 +307,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b537a2f6dd11b435c8e686edbad54e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostFactor: 1.5
+  speedBoostFactor: 3
   speedBoostTime: 3
   isAlive: 1
   headTransform: {fileID: 0}
   score: 0
   scoreSpeed: 1
-  tailObject: {fileID: 0}
+  tailObject: {fileID: 3429518962175323713, guid: 9fa8bbf48e307409bbb3733aba9aa36c, type: 3}
 --- !u!1001 &3257820344624584632
 PrefabInstance:
   m_ObjectHideFlags: 0
