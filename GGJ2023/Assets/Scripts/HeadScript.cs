@@ -54,6 +54,11 @@ public class HeadScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        AudioSource sound = other.gameObject.GetComponent<AudioSource>();
+        if (sound) {
+            Debug.Log("HERE");
+            sound.Play();
+        }
         if (other.tag == "Obstacle") {
             GetComponentInParent<PlayerScript>().Collision();
         }

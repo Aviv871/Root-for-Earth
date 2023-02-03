@@ -30,14 +30,23 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void Collect(GameObject obj) {
+        StartCoroutine(delayedDestroy(obj));
+
         Collectable collectable = obj.GetComponent<Collectable>();
-        Destroy(obj);
-        Debug.Log(nameof(collectable.item));
+    
         switch (collectable.item) {
             case CollectableItem.WATER:
-                StartCoroutine("boostSpeed");
+                StartCoroutine(boostSpeed());
                 break;
         }
+    }
+
+    // We delay the destroyment of the object because of its sound effects
+    public IEnumerator delayedDestroy(GameObject obj) {
+        obj.GetComponent<SpriteRenderer>().enabled = false;
+        obj.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(5);
+        Destroy(obj);
     }
 
     public IEnumerator boostSpeed() {
