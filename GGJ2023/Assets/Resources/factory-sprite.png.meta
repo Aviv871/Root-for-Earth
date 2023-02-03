@@ -110,10 +110,10 @@ TextureImporter:
       name: factory-sprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1138
-        width: 517
-        height: 517
+        x: 8
+        y: 1143
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: factory-sprite_1
       rect:
         serializedVersion: 2
-        x: 539
-        y: 1138
-        width: 517
-        height: 517
+        x: 543
+        y: 1143
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: factory-sprite_2
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 1138
-        width: 517
-        height: 517
+        x: 1092
+        y: 1143
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: factory-sprite_3
       rect:
         serializedVersion: 2
-        x: 1617
-        y: 1138
-        width: 517
-        height: 517
+        x: 1634
+        y: 1143
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: factory-sprite_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 589
-        width: 517
-        height: 517
+        x: 8
+        y: 590
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: factory-sprite_5
       rect:
         serializedVersion: 2
-        x: 539
-        y: 589
-        width: 517
-        height: 517
+        x: 550
+        y: 590
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: factory-sprite_6
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 589
-        width: 517
-        height: 517
+        x: 1092
+        y: 590
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: factory-sprite_7
       rect:
         serializedVersion: 2
-        x: 1617
-        y: 589
-        width: 517
-        height: 517
+        x: 1634
+        y: 590
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: factory-sprite_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 517
-        height: 517
+        x: 8
+        y: 37
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: factory-sprite_9
       rect:
         serializedVersion: 2
-        x: 539
-        y: 40
-        width: 517
-        height: 517
+        x: 550
+        y: 37
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,13 +317,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree
+      name: factory-sprite_10
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 40
-        width: 517
-        height: 517
+        x: 1092
+        y: 37
+        width: 512
+        height: 512
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,8 +331,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cee7122deef29454cba7ebd71cff6729
-      internalID: 1453654431
+      spriteID: 97dfb59cc965c48fe82d65f9272649de
+      internalID: -1815728611
       vertices: []
       indices: 
       edges: []
@@ -350,12 +350,12 @@ TextureImporter:
     nameFileIdTable:
       factory-sprite_2: -1574702431
       factory-sprite_0: 2121014043
-      tree: 1453654431
       factory-sprite_5: -390061518
       factory-sprite_8: -61803813
       factory-sprite_1: -1313961056
       factory-sprite_9: -25493777
       factory-sprite_7: 39831631
+      factory-sprite_10: -1815728611
       factory-sprite_3: -1926396811
       factory-sprite_6: -2024004600
       factory-sprite_4: 1931994937
