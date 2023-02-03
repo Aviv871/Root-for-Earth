@@ -14,8 +14,13 @@ public class LogicManagerScript : MonoBehaviour
 
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
+        for (int i = 0; i < startingPositions.Count; i++)
+        {
+            startingPositions[i].gameObject.SetActive(false);
+        }
         for (int i = 0; i < playerCount; i++) {
             Debug.Log("Generating player " + i);
+            startingPositions[i].gameObject.SetActive(true);
             GameObject player = Instantiate(playerPrefab);
             player.GetComponentInChildren<HeadScript>().transform.position = startingPositions[i].transform.position;
             player.GetComponentInChildren<HeadScript>().movementControls = (MovementControls)i;
