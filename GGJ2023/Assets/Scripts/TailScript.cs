@@ -61,9 +61,8 @@ public class TailScript : MonoBehaviour
 
 		smallBranchCountdown--;
 		if (smallBranchCountdown < 1) {
-			// Add small branch
-			// TODO: SPWAN
-			smallBranchCountdown = smallBranchSpacing +  Random.Range(1, smallBranchSpacing / 2) - smallBranchSpacing / 2;
+			Instantiate(smallBranch, headTransform.transform.position, headTransform.transform.rotation * Quaternion.AngleAxis(Random.Range(0, 2) * 180, transform.forward));
+			smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(1, smallBranchSpacing / 2);
 			Debug.Log("Random");
 		}
 	}
