@@ -37,26 +37,26 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void Collect(GameObject obj) {
-        StartCoroutine(delayedDestroy(obj));
+        StartCoroutine(DelayedDestroy(obj));
 
         Collectable collectable = obj.GetComponent<Collectable>();
     
         switch (collectable.item) {
             case CollectableItem.WATER:
-                StartCoroutine(boostSpeed());
+                StartCoroutine(BoostSpeed());
                 break;
         }
     }
 
     // We delay the destroyment of the object because of its sound effects
-    public IEnumerator delayedDestroy(GameObject obj) {
+    public IEnumerator DelayedDestroy(GameObject obj) {
         obj.GetComponent<SpriteRenderer>().enabled = false;
         obj.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(5);
         Destroy(obj);
     }
 
-    public IEnumerator boostSpeed() {
+    public IEnumerator BoostSpeed() {
         GetComponentInChildren<HeadScript>().forwardSpeed *= speedBoostFactor;
         yield return new WaitForSeconds(speedBoostTime);
         GetComponentInChildren<HeadScript>().forwardSpeed /= speedBoostFactor;
@@ -72,5 +72,10 @@ public class PlayerScript : MonoBehaviour
         GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
         newTail.GetComponent<TailScript>().originTree = originTree;
         headTransform.Rotate(new Vector3(0, 0, 180));
+    }
+
+    public void DestroyedFactory()
+    {
+        score += logicManager.factoryScore;
     }
 }

@@ -72,6 +72,7 @@ public class HeadScript : MonoBehaviour
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
+                GetComponentInParent<PlayerScript>().DestroyedFactory();
             }
             GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
         } else if (other.tag == "Collectable") {
