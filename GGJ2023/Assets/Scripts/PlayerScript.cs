@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public bool isAlive = true;
 
     public Transform headTransform;
+    public float score = 0;
+    public float scoreSpeed = 1;
     private LogicManagerScript logicManager;
 
     void Awake()
@@ -21,7 +23,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // individual score
+        if (isAlive)
+        {
+            score += Time.deltaTime * scoreSpeed * GetComponentInChildren<HeadScript>().forwardSpeed;
+        }
     }
 
     public void Collision() {
