@@ -658,7 +658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reuven
+  m_Text: Rubik
 --- !u!222 &824301617
 CanvasRenderer:
   m_ObjectHideFlags: 0
