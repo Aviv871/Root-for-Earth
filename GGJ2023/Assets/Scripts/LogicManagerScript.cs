@@ -108,7 +108,7 @@ public class LogicManagerScript : MonoBehaviour
             GameOver();
         }
     }
-    private void GameOver() {
+    public void GameOver() {
         Debug.Log("Game Over");
         isGameOver = true;
         gameOverText.SetActive(true);

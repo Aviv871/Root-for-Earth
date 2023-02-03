@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - Collectable
   - Factory
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - ObstacleLayer
   - FactoryLayer
-  - 
+  - DrillLayer
   - 
   - 
   - 
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Factories
     uniqueID: 2610967843
+    locked: 0
+  - name: Drill
+    uniqueID: 1184040389
     locked: 0

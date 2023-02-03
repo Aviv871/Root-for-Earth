@@ -76,7 +76,7 @@ public class HeadScript : MonoBehaviour
             GetComponentInParent<PlayerScript>().Respawn();
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
-        } else if (other.tag == "Obstacle") {
+        } else if ((other.tag == "Obstacle") || (other.tag == "Target")) {
             GetComponentInParent<PlayerScript>().Collision();
         }
     }
