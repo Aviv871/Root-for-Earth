@@ -89,13 +89,13 @@ public class TailScript : MonoBehaviour
 	}
 
 	public IEnumerator fadeOutAndDestroy() {
+		// TODO: nice fade-out
 		yield return new WaitForSeconds(0);
 		foreach (GameObject smallBranch in smallBranches)
 		{
 			Destroy(smallBranch);
 		}
-		Debug.Log("RESETTING TAIL");
-		
+
 		Destroy(gameObject);
 
 	}
