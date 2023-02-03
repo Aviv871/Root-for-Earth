@@ -11,7 +11,7 @@ public class LogicManagerScript : MonoBehaviour
         for (int i = 0; i < playerCount; i++) {
             Debug.Log("Generating player " + i);
             GameObject player = Instantiate(playerPrefab);
-            player.transform.position = startingPositions[i].transform.position;
+            player.GetComponentInChildren<HeadScript>().transform.position = startingPositions[i].transform.position;
             player.GetComponentInChildren<HeadScript>().movementControls = (MovementControls)i;
             player.GetComponentInChildren<HeadScript>().transform.rotation = Quaternion.Euler(0, 0, 90 + 90 * i);
             players.Add(player);
