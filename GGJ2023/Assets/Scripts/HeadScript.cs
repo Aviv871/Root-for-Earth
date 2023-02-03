@@ -78,12 +78,14 @@ public class HeadScript : MonoBehaviour
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if (other.tag == "Obstacle") {
+            Debug.Log("collision " + other.gameObject.name);
             GetComponentInParent<PlayerScript>().Collision();
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Planet") {
+            Debug.Log("collision " + other.gameObject.name);
             GetComponentInParent<PlayerScript>().Collision();
             // TODO: Spwan baby tree
         }
