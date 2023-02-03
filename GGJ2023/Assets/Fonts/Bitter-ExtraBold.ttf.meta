@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: c5f3e2b528641e04a8e0806210f733fe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bitter
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 040ae2bdfaaffdd46ae4162f60f03d98, type: 3}
+  - {fileID: 12800000, guid: 65bd3c396bfbb24408243e804d6eedb6, type: 3}
+  - {fileID: 12800000, guid: 935c0cf9347b9874e8dfa339a3ac6f08, type: 3}
+  - {fileID: 12800000, guid: 8195cd5e6cdd02c4dab972112a8cd9fc, type: 3}
+  - {fileID: 12800000, guid: 8548589590883ac4f993e32eec9b877e, type: 3}
+  - {fileID: 12800000, guid: 40bec41e2e9727b4192ac61056215a6d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

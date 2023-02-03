@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameOverGradient
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 1, g: 0.25442845, b: 0, a: 1}
-  topRight: {r: 1, g: 0.25490198, b: 0, a: 1}
-  bottomLeft: {r: 0.754717, g: 0.19450082, b: 0.0028479325, a: 1}
-  bottomRight: {r: 0.7529412, g: 0.19607843, b: 0.003921569, a: 1}
+  topLeft: {r: 0.23529412, g: 0.41960785, b: 0.18431373, a: 1}
+  topRight: {r: 0.23504879, g: 0.41900003, b: 0.18395123, a: 1}
+  bottomLeft: {r: 0.56078434, g: 0.87843144, b: 0.3529412, a: 1}
+  bottomRight: {r: 0.56078434, g: 0.87843144, b: 0.3529412, a: 1}
