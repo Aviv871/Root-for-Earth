@@ -11,7 +11,8 @@ public class LogicManagerScript : MonoBehaviour
     public List<GameObject> players;
     public float totalScore;
     public Text scoreText;
-    public Text gameOverText;
+    public GameObject gameOverText;
+    public GameObject playAgainButton;
     private bool isGameOver = false;
 
     void generatePlayers(int playerCount) {
@@ -28,6 +29,8 @@ public class LogicManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverText.SetActive(false);
+        playAgainButton.SetActive(false);
         generatePlayers(2);
     }
 
@@ -59,6 +62,7 @@ public class LogicManagerScript : MonoBehaviour
     private void GameOver() {
         Debug.Log("Game Over");
         isGameOver = true;
-        gameOverText.enabled = true;
+        gameOverText.SetActive(true);
+        playAgainButton.SetActive(true);
     }
 }
