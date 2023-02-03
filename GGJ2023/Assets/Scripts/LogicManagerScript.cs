@@ -11,7 +11,7 @@ public class LogicManagerScript : MonoBehaviour
     public List<GameObject> players;
     public float totalScore;
     public float factoryScore;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public int waterCount;
     public int rockCount;
     public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
