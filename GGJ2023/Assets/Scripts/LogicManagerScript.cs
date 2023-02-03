@@ -7,6 +7,7 @@ public class LogicManagerScript : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private List<GameObject> startingPositions;
     public List<GameObject> players;
+    public float totalScore = 0;
     void generatePlayers(int playerCount) {
         for (int i = 0; i < playerCount; i++) {
             Debug.Log("Generating player " + i);
@@ -26,7 +27,11 @@ public class LogicManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //totalScore = 5;
+        foreach (GameObject player in players)
+        {
+            totalScore += player.GetComponent<PlayerScript>().scoreSpeed * Time.deltaTime;
+        }
     }
     public void GameOver() {
         Debug.Log("Game Over");
