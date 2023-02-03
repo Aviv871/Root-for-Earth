@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum MovementControls 
+{
+  Arrows,
+  ASDW
+}
+
 public class HeadScript : MonoBehaviour
 {
 	private float horizontal;
@@ -12,6 +18,9 @@ public class HeadScript : MonoBehaviour
 	private float angularSpeed; 
     private EdgeCollider2D col;
 
+    [SerializeField]
+    private MovementControls movementControls;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +29,11 @@ public class HeadScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		horizontal = Input.GetAxis("Horizontal");
+        if (movementControls == MovementControls.ASDW) {
+		    horizontal = Input.GetAxis("Horizontal AD");
+        } else {
+            horizontal = Input.GetAxis("Horizontal");
+        }
     }
 
     void FixedUpdate() {
