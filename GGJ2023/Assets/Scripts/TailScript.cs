@@ -16,6 +16,9 @@ public class TailScript : MonoBehaviour
 	private bool isDrawing = true;
 	private Transform headTransform;
 
+	private int smallBranchCountdown = 1;
+	[SerializeField] private GameObject smallBranch;
+	[SerializeField] private int smallBranchSpacing = 10;
 	
 	void Start()
 	{
@@ -46,10 +49,6 @@ public class TailScript : MonoBehaviour
 		}
 	}
 
-	void FixedUpdate() {
-		
-	}
-
 	void SetPoint()
 	{
 		if (points.Count > 1)
@@ -59,21 +58,27 @@ public class TailScript : MonoBehaviour
 		points.Add(headTransform.position);
 		line.positionCount = points.Count;
 		line.SetPosition(points.Count - 1, headTransform.position);
+
+		smallBranchCountdown--;
+		if (smallBranchCountdown < 1) {
+			Instantiate(smallBranch, headTransform.transform.position, headTransform.transform.rotation * Quaternion.AngleAxis(Random.Range(0, 2) * 180, transform.forward));
+			smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(1, smallBranchSpacing / 2);
+		}
 	}
 
-	// public void DisableDrawing()
-	// {
-	// 	isDrawing = false;
-	// 	StartCoroutine(SynchronizeCollider());
-	// }
+	public void DisableDrawing()
+	{
+		isDrawing = false;
+		StartCoroutine(SynchronizeCollider());
+	}
 
-	// IEnumerator SynchronizeCollider()
-	// {
-	// 	yield return new WaitForSeconds(0.2f);
+	IEnumerator SynchronizeCollider()
+	{
+		yield return new WaitForSeconds(0.2f);
 
-	// 	if (points.Count > 1)
-	// 	{
-	// 		col.points = points.ToArray<Vector2>();
-	// 	}
-	// }
+		if (points.Count > 1)
+		{
+			col.points = points.ToArray<Vector2>();
+		}
+	}
 }

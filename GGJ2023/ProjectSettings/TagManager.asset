@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Logic
+  - Planet
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Head
   - Water
   - UI
-  - 
+  - ObstacleLayer
   - 
   - 
   - 
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2567291987
+    locked: 0
+  - name: Roots
+    uniqueID: 741011561
     locked: 0

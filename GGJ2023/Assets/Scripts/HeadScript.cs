@@ -12,8 +12,7 @@ public class HeadScript : MonoBehaviour
 {
 	private float horizontal;
     
-    [SerializeField]
-	private float forwardSpeed; 
+	public float forwardSpeed; 
     [SerializeField]
 	private float angularSpeed; 
     private EdgeCollider2D col;
@@ -21,12 +20,10 @@ public class HeadScript : MonoBehaviour
     [SerializeField]
     private MovementControls movementControls;
 
-    private LogicManagerScript logicManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        logicManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>();
+        
     }
 
     // Update is called once per frame
@@ -40,12 +37,25 @@ public class HeadScript : MonoBehaviour
     }
 
     void FixedUpdate() {
-		transform.Translate(Vector2.up * forwardSpeed * Time.fixedDeltaTime, Space.Self);
-        transform.Rotate(Vector3.forward * - horizontal * angularSpeed * Time.fixedDeltaTime);
-
+        if (GetComponentInParent<PlayerScript>().isAlive) {
+            transform.Translate(Vector2.up * forwardSpeed * Time.fixedDeltaTime, Space.Self);
+            transform.Rotate(Vector3.forward * - horizontal * angularSpeed * Time.fixedDeltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        logicManager.GameOver();
+        if (other.tag == "Obstacle") {
+            GetComponentInParent<PlayerScript>().Collision();
+        }
+        else if (other.tag == "Collectable") {
+            GetComponentInParent<PlayerScript>().Collect(other.gameObject);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "Planet") {
+            GetComponentInParent<PlayerScript>().Collision();
+            // TODO: Spwan baby tree
+        }
     }
 }
