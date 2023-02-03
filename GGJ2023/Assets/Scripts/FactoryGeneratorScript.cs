@@ -18,7 +18,6 @@ public class FactoryGeneratorScript : MonoBehaviour
     void Start()
     {
         factoryRadius = Mathf.Sqrt(Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.x/2, 2) + Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.y/2, 2));
-        Debug.Log(factoryRadius);
         radius = planet.GetComponent<CircleCollider2D>().radius;
         spawnCounter = factorySpawnRate;
     }

@@ -27,8 +27,8 @@ public class TailScript : MonoBehaviour
 	// This keeps the original tree which spawned this specific tail, in order to be removed with the tail.
 	public GameObject originTree;
 
-	private int fadeOutSteps = 20;
-	private float fadeOutStepDuration = 0.3f; // In seconds
+	private int fadeOutSteps = 100;
+	private float fadeOutStepDuration = 0.05f; // In seconds
 	
 	void Start()
 	{
@@ -98,28 +98,40 @@ public class TailScript : MonoBehaviour
 		// So we don't collide with ourselves
 		gameObject.GetComponent<EdgeCollider2D>().enabled = false;
 
+		// Old tail shouldn't follow the new head
 		DisableDrawing();
+
+		// // Remove all the small heads
+		// foreach (GameObject smallBranch in smallBranches)
+		// {
+		// 	Destroy(smallBranch.GetComponentInChildren<BranchHeadScript>().gameObject);
+		// }
 
 		for (int i = 0; i < fadeOutSteps; i++)
 		{
-			Gradient fadeOutGradient = new Gradient();
-        
-			GradientAlphaKey[] alphaKey = new GradientAlphaKey[2];
-			alphaKey[0].alpha = 0.0f;
-			alphaKey[0].time = 0.0f;
-			alphaKey[1].alpha = 1f - (1f/fadeOutSteps) * i;
-			alphaKey[1].time = 1f - (1f/fadeOutSteps) * i;
-
-			fadeOutGradient.alphaKeys = alphaKey;
 
 			LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
-			fadeOutGradient.colorKeys = lineRenderer.colorGradient.colorKeys;
-
+			Gradient fadeOutGradient = GetLineGradientFadeOut(lineRenderer, i, fadeOutSteps);
 			lineRenderer.colorGradient = fadeOutGradient;
-			foreach (GameObject smallBranch in smallBranches)
-			{
-				smallBranch.gameObject.GetComponent<LineRenderer>().colorGradient = fadeOutGradient;
+
+			// For the small branches, we want the process faster
+			int fadeOutStepsForSmallBranches = Mathf.RoundToInt(fadeOutSteps / 1.4f);
+			if (i <= fadeOutStepsForSmallBranches) {
+				foreach (GameObject smallBranch in smallBranches)
+				{
+					// Fade out the small branch heads
+					GameObject smallHead = smallBranch.gameObject.GetComponentInChildren<BranchHeadScript>().gameObject;
+					SpriteRenderer smallHeadSprite = smallHead.GetComponent<SpriteRenderer>();
+					smallHeadSprite.color = new Color(smallHeadSprite.color.r, smallHeadSprite.color.g, smallHeadSprite.color.b,
+						1f - (1f/fadeOutStepsForSmallBranches) * i);
+
+					// Fade out the small branch tails
+					fadeOutGradient = GetLineGradientFadeOut(lineRenderer, i, fadeOutStepsForSmallBranches, true);
+					Debug.Log("Step " + i + " out of " + fadeOutStepsForSmallBranches + " for small branches, gradient = " + fadeOutGradient.alphaKeys[1].time.ToString());
+					smallBranch.gameObject.GetComponentInChildren<LineRenderer>().colorGradient = fadeOutGradient;
+				}
 			}
+
 			yield return new WaitForSeconds(fadeOutStepDuration);
 		}
 
@@ -135,4 +147,31 @@ public class TailScript : MonoBehaviour
 		}
 
 	}
+
+  private Gradient GetLineGradientFadeOut(LineRenderer lineRenderer, int step, int totalSteps, bool reverseDirection = false)
+  {
+    Gradient fadeOutGradient = new Gradient();
+        
+	GradientAlphaKey[] alphaKey = new GradientAlphaKey[2];
+	alphaKey[0].alpha = 1.0f - ((1f/totalSteps) * step) / 2; // Just to make the gradient less harsh torwards the end
+	alphaKey[0].time = 0.0f;
+	alphaKey[1].alpha = 1f - (1f/totalSteps) * step;
+	alphaKey[1].time = 1f - (1f/totalSteps) * step;
+
+	// if both points are in the same place, it causes weird stuff
+	if (alphaKey[1].time == 0) {
+		alphaKey[0].alpha = 0;
+	}
+
+	if (reverseDirection) {
+		alphaKey.Reverse();
+	}
+
+	fadeOutGradient.alphaKeys = alphaKey;
+
+	fadeOutGradient.colorKeys = lineRenderer.colorGradient.colorKeys;
+
+	Debug.Log("Step = " + step.ToString() + "Alpha time: " + alphaKey[1].time.ToString());
+	return fadeOutGradient;
+  }
 }
