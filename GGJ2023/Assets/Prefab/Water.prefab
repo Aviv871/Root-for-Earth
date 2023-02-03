@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8550598668854972420}
   - component: {fileID: 8550598668854972473}
   - component: {fileID: 8519703595496269930}
-  m_Layer: 0
-  m_Name: Collection
+  m_Layer: 6
+  m_Name: Water
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 0.17066666, y: 0.17066666}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
