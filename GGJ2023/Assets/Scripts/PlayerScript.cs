@@ -7,8 +7,7 @@ public class PlayerScript : MonoBehaviour
 
     public Transform headTransform;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         headTransform = GetComponentInChildren<HeadScript>().transform;
     }
