@@ -16,6 +16,9 @@ public class TailScript : MonoBehaviour
 	private bool isDrawing = true;
 	private Transform headTransform;
 
+	private int smallBranchCountdown = 1;
+	[SerializeField] private GameObject smallBranch;
+	[SerializeField] private int smallBranchSpacing = 10;
 	
 	void Start()
 	{
@@ -55,6 +58,9 @@ public class TailScript : MonoBehaviour
 		points.Add(headTransform.position);
 		line.positionCount = points.Count;
 		line.SetPosition(points.Count - 1, headTransform.position);
+
+		// Add small branch
+
 	}
 
 	public void DisableDrawing()
