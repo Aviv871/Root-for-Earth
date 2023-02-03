@@ -26,4 +26,10 @@ public class PlayerScript : MonoBehaviour
         isAlive = false;
         logicManager.GameOver();
     }
+
+    public void Collect(GameObject obj) {
+        Collectable collectable = obj.GetComponent<Collectable>();
+        Destroy(obj);
+        Debug.Log(nameof(collectable.item));
+    }
 }

@@ -48,6 +48,9 @@ public class HeadScript : MonoBehaviour
         if (other.tag == "Obstacle") {
             GetComponentInParent<PlayerScript>().Collision();
         }
+        else if (other.tag == "Collectable") {
+            GetComponentInParent<PlayerScript>().Collect(other.gameObject);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {

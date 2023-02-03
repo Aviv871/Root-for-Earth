@@ -63,7 +63,6 @@ public class TailScript : MonoBehaviour
 		if (smallBranchCountdown < 1) {
 			Instantiate(smallBranch, headTransform.transform.position, headTransform.transform.rotation * Quaternion.AngleAxis(Random.Range(0, 2) * 180, transform.forward));
 			smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(1, smallBranchSpacing / 2);
-			Debug.Log("Random");
 		}
 	}
 

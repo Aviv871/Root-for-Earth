@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631eec81a69f7704397a5f302f5abed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.36
+  forwardSpeed: 0.45
   angularSpeed: 150
   movementControls: 0
 --- !u!50 &193095152801930746
