@@ -21,4 +21,9 @@ public class MainGameButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("mainmenu");
+    }
 }

@@ -13,6 +13,7 @@ public class LogicManagerScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverText;
     public GameObject playAgainButton;
+    public GameObject mainMenuButton;
     private bool isGameOver = false;
 
     void generatePlayers(int playerCount) {
@@ -37,6 +38,7 @@ public class LogicManagerScript : MonoBehaviour
         generatePlayers(ButtonBehaviour.playerCount);
         gameOverText.SetActive(false);
         playAgainButton.SetActive(false);
+        mainMenuButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -69,5 +71,6 @@ public class LogicManagerScript : MonoBehaviour
         isGameOver = true;
         gameOverText.SetActive(true);
         playAgainButton.SetActive(true);
+        mainMenuButton.SetActive(true);
     }
 }
