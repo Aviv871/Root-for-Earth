@@ -21,9 +21,12 @@ public class HeadScript : MonoBehaviour
     [SerializeField]
     private MovementControls movementControls;
 
+    private LogicManagerScript logicManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        logicManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>();
     }
 
     // Update is called once per frame
@@ -43,8 +46,6 @@ public class HeadScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Obstacle") {
-            Debug.Log("Game Over");
-        }
+        logicManager.GameOver();
     }
 }
