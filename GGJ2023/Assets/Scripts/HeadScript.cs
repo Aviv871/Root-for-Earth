@@ -56,6 +56,7 @@ public class HeadScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Planet") {
             GetComponentInParent<PlayerScript>().Collision();
+            // TODO: Spwan baby tree
         }
     }
 }
