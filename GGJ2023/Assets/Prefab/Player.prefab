@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0048bd39bfc04340b83d4575fc80094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
   headTransform: {fileID: 0}
 --- !u!1 &193095153455380985
 GameObject:
@@ -297,14 +298,23 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.025772095
-        value: 0.5388603
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.48095238
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -339,7 +349,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 5
     alignment: 0
     textureMode: 1
     textureScale: {x: 7, y: -1}
@@ -403,3 +413,5 @@ MonoBehaviour:
   pointSpacing: 0.00001
   points: []
   isDrawing: 1
+  smallBranch: {fileID: 0}
+  smallBranchSpacing: 10
