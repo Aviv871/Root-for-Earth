@@ -35,6 +35,9 @@ public class LogicManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ButtonBehaviour.playerCount <= 0) {
+            ButtonBehaviour.playerCount = 2;
+        }
         generatePlayers(ButtonBehaviour.playerCount);
         gameOverText.SetActive(false);
         playAgainButton.SetActive(false);
