@@ -20,9 +20,10 @@ public class CameraScript : MonoBehaviour
     {
         gameObject.transform.Rotate(new Vector3(0,0,0.1f));
 
-        if (logicManager.factoryCount > 3)
+        // chagne sky color by factory count (pollution level)
+        if (logicManager.factoryAmount > 3)
         {
-            ChangeBrightness(cm.backgroundColor, 1f - 0.05f * (float)logicManager.factoryCount);
+            ChangeBrightness(cm.backgroundColor, 1f - 0.05f * (float)logicManager.factoryAmount);
         }
 
     }

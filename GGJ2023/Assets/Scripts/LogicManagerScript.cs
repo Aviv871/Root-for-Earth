@@ -24,7 +24,8 @@ public class LogicManagerScript : MonoBehaviour
     public GameObject rockObject;
     private bool isGameOver = false;
 
-    public int factoryCount = 0;
+    public int factoryAmount = 0;
+    [SerializeField] private int maxFactoryAmount;
 
     public Color[] colors;
 
@@ -107,6 +108,7 @@ public class LogicManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (inStartCutsence) {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, targetCamPos, ref velocity, smoothTimeCamEffect);
             if (Vector3.Distance(cam.transform.position, targetCamPos) < 0.05f) {
@@ -139,7 +141,8 @@ public class LogicManagerScript : MonoBehaviour
             SceneManager.LoadScene("mainmenu");
         }
         scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
-        if (isGameoverInner)
+        // game over also if max factory amount exceeded
+        if (isGameoverInner || factoryAmount > maxFactoryAmount)
         {
             GameOver();
         }
