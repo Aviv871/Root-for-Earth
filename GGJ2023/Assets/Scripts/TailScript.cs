@@ -19,7 +19,7 @@ public class TailScript : MonoBehaviour
 	// Small branches
 	private int smallBranchCountdown = 1;
 	[SerializeField] private GameObject smallBranch;
-	[SerializeField] private int smallBranchSpacing = 10;
+	[SerializeField] private int smallBranchSpacing = 4;
 	
 	[SerializeField]
 	private List<GameObject> smallBranches;
@@ -92,7 +92,8 @@ public class TailScript : MonoBehaviour
 			Color thisColor = GetComponentInParent<PlayerScript>().color;
 			newSmallBranch.GetComponentInChildren<BranchHeadScript>().gameObject.GetComponent<SpriteRenderer>().color = thisColor;
             newSmallBranch.GetComponentInChildren<BranchTailScript>().gameObject.GetComponent<Renderer>().material.color = thisColor;
-            smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(1, smallBranchSpacing / 2);
+            smallBranchCountdown = smallBranchSpacing / 2 +  Random.Range(0, smallBranchSpacing / 2);
+			Debug.Log("Small branch countdown: " + smallBranchCountdown);
 			smallBranches.Add(newSmallBranch);
 		}
 	}

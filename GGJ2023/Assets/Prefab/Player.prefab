@@ -374,6 +374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tail
       objectReference: {fileID: 0}
+    - target: {fileID: 3429518962175323715, guid: 9fa8bbf48e307409bbb3733aba9aa36c, type: 3}
+      propertyPath: smallBranchSpacing
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
