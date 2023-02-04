@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LogicManagerScript : MonoBehaviour
 {
@@ -24,10 +25,7 @@ public class LogicManagerScript : MonoBehaviour
     public GameObject cam;
     private bool isGameOver = false;
 
-    public Vector3 targetCamPos;
-    public float smoothTimeCamEffect = 0.3F;
-    private Vector3 velocity = Vector3.zero;
-    private bool inStartCutsence = true;
+    public Color[] colors;
 
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
@@ -39,10 +37,16 @@ public class LogicManagerScript : MonoBehaviour
             Debug.Log("Generating player " + i);
             startingPositions[i].gameObject.SetActive(true);
             GameObject player = Instantiate(playerPrefab);
+            Color myColor = colors[i];
+            player.GetComponent<PlayerScript>().color = myColor;
             HeadScript headScript = player.GetComponentInChildren<HeadScript>();
+            headScript.gameObject.GetComponent<SpriteRenderer>().color = myColor;
             headScript.transform.position = startingPositions[i].transform.position;
             headScript.transform.rotation = Quaternion.Euler(0,0,180) * (startingPositions[i].transform.rotation);
             headScript.movementControls = (MovementControls)i;
+
+            TailScript tailScript = player.GetComponentInChildren<TailScript>();
+            tailScript.gameObject.GetComponent<Renderer>().material.color = myColor;
             
             // Assign the originTree from the starting point to the tail in order to be destroyed later
             player.GetComponentInChildren<TailScript>().originTree = startingPositions[i].GetComponentInChildren<SpriteRenderer>().gameObject;
@@ -127,6 +131,10 @@ public class LogicManagerScript : MonoBehaviour
             {
                 GameOver();
             }
+        }
+
+        if (Input.GetKey(KeyCode.Escape)) {
+            SceneManager.LoadScene("mainmenu");
         }
     }
 
