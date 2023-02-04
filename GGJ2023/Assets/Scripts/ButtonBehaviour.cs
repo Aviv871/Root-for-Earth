@@ -36,6 +36,11 @@ public class ButtonBehaviour : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     public void Instructions()
     {
         // LoadScene();
@@ -44,11 +49,6 @@ public class ButtonBehaviour : MonoBehaviour
     public void Scoreboard()
     {
         // LoadScene();
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
     }
     
 }
