@@ -2,7 +2,7 @@
 
 # Root for Earth
 Our entry for Global Game Jam 2023 (Theme: Roots) :tada:  
-[GGJ Page](https://google.com)
+[GGJ Page](https://globalgamejam.org/2023/games/root-earth-3)
   
 ## Playing
 Fight together to save our dear planet!
