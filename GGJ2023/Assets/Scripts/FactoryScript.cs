@@ -32,7 +32,7 @@ public class FactoryScript : MonoBehaviour
             renderer.sprite = animationFrames[i];
             if (i == 2) {
                 GameObject smoke = gameObject.GetComponentInChildren<ParticleSystem>().gameObject;
-                GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>().factoryCount--;
+                GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>().factoryAmount--;
                 Destroy(smoke);
             }
             yield return new WaitForSeconds(animationSpeed);

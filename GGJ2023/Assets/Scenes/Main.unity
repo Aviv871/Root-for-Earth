@@ -1809,7 +1809,8 @@ MonoBehaviour:
   mainMenuButton: {fileID: 1022705658}
   waterObject: {fileID: 8550598668854972421, guid: 4b861ac89bed6b94cb92bb7e10d64d04, type: 3}
   rockObject: {fileID: 1407543103002024214, guid: b762812d32f256f499a35507a93db1b8, type: 3}
-  factoryCount: 0
+  factoryAmount: 0
+  maxFactoryAmount: 8
   colors:
   - {r: 0.6698113, g: 0.5261634, b: 0.3121573, a: 1}
   - {r: 0.33962262, g: 0.2736932, b: 0.23517264, a: 1}
