@@ -99,7 +99,7 @@ public class HeadScript : MonoBehaviour
         } else if (other.tag == "Obstacle") {
             Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
             if (gracePeriod <= 0) {
-                playerScript.Collision();
+                playerScript.Die();
             }
         }
     }
@@ -107,7 +107,7 @@ public class HeadScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Planet") {
             Debug.Log("collision with planet");
-            GetComponentInParent<PlayerScript>().Collision();
+            GetComponentInParent<PlayerScript>().Die();
             // TODO: Spwan baby tree
         }
     }

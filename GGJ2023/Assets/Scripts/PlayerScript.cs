@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void Collision() {
+    public void Die() {
         isAlive = false;
     }
 

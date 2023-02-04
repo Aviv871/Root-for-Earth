@@ -159,6 +159,11 @@ public class LogicManagerScript : MonoBehaviour
     }
     private void GameOver(string reason) {
         Debug.Log("Game Over");
+        PlayerScript[] players = GetComponents<PlayerScript>();
+        foreach (PlayerScript player in players)
+        {
+            player.Die();
+        }
         isGameOver = true;
         gameOverText.SetActive(true);
         gameOverReasonText.SetActive(true);
