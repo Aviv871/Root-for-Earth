@@ -67,7 +67,7 @@ public class HeadScript : MonoBehaviour
 
     void FixedUpdate() {
         if (GetComponentInParent<PlayerScript>().isAlive) {
-            totalForwardSpeed = (baseForwardSpeed + Mathf.Log(forwardSpeedIncrease)) * waterSpeedBoost;
+            totalForwardSpeed = baseForwardSpeed * waterSpeedBoost + Mathf.Log(forwardSpeedIncrease);
             transform.Translate(Vector2.up * totalForwardSpeed * Time.fixedDeltaTime, Space.Self);
             transform.Rotate(Vector3.forward * - horizontal * angularSpeed * Time.fixedDeltaTime);
         }
