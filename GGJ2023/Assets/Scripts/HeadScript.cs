@@ -31,8 +31,6 @@ public class HeadScript : MonoBehaviour
     // If set to true, can't collide with anything.
     private int gracePeriod = 0;
 
-    private bool isInsideFactory = false;
-
     // Start is called before the first frame update
     void Start()
     {
