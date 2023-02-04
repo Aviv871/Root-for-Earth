@@ -112,7 +112,7 @@ public class HeadScript : MonoBehaviour
     }
 
     private IEnumerator disableGracePeriod() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
         gracePeriod--;
     }
 }
