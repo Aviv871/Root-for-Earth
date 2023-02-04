@@ -24,7 +24,9 @@ public class HeadScript : MonoBehaviour
     private bool isTouched;
 
     // If set to true, can't collide with anything.
-    private bool gracePeriod = false;
+    private int gracePeriod = 0;
+
+    private bool isInsideFactory = false;
 
     // Start is called before the first frame update
     void Start()
@@ -71,9 +73,13 @@ public class HeadScript : MonoBehaviour
         }
 
         if (other.tag == "Factory") {
-            gracePeriod = true;
+            if (isInsideFactory) { // already handling one collision with factory, wait until we leave for more
+                return;
+            }
+
+            isInsideFactory = true;
+            gracePeriod++;
             StartCoroutine("disableGracePeriod");
-            Debug.Log("Caught collision with factory");
             GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
@@ -84,7 +90,7 @@ public class HeadScript : MonoBehaviour
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if ((other.tag == "Obstacle") || (other.tag == "Target")) {
             Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
-            if (!gracePeriod) {
+            if (gracePeriod <= 0) {
                 GetComponentInParent<PlayerScript>().Collision();
             }
         }
@@ -95,11 +101,13 @@ public class HeadScript : MonoBehaviour
             Debug.Log("collision with planet");
             GetComponentInParent<PlayerScript>().Collision();
             // TODO: Spwan baby tree
+        } else if (other.tag == "Factory") {
+            isInsideFactory = false;
         }
     }
 
     private IEnumerator disableGracePeriod() {
         yield return new WaitForSeconds(2);
-        gracePeriod = false;
+        gracePeriod--;
     }
 }

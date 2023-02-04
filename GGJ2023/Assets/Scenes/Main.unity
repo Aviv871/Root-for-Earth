@@ -376,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 23'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d77a0907f48bce43a4519e99b0a365b, type: 2}
   m_sharedMaterial: {fileID: -2337254385575826386, guid: 1d77a0907f48bce43a4519e99b0a365b, type: 2}
@@ -644,7 +644,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5.532091
   m_Depth: -1
   m_CullingMask:
@@ -669,7 +669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1716,6 +1716,9 @@ MonoBehaviour:
   - {r: 0.33962262, g: 0.2736932, b: 0.23517264, a: 1}
   - {r: 0.82273054, g: 0.8773585, b: 0.8595779, a: 1}
   - {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+  cam: {fileID: 519420028}
+  targetCamPos: {x: 0, y: 0, z: -10}
+  smoothTimeCamEffect: 0.3
 --- !u!4 &1887238931
 Transform:
   m_ObjectHideFlags: 0
