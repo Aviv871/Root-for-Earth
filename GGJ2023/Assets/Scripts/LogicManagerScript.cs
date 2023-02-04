@@ -55,6 +55,7 @@ public class LogicManagerScript : MonoBehaviour
             headScript.transform.position = startingPositions[i].transform.position;
             headScript.transform.rotation = Quaternion.Euler(0,0,180) * (startingPositions[i].transform.rotation);
             headScript.movementControls = (MovementControls)i;
+            headScript.speedPlayerMultiplier = 1 - ((playerCount - 2) / 4f);
 
             TailScript tailScript = player.GetComponentInChildren<TailScript>();
             tailScript.gameObject.GetComponent<Renderer>().material.color = myColor;
