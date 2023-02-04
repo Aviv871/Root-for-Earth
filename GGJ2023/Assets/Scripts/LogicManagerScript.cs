@@ -90,9 +90,6 @@ public class LogicManagerScript : MonoBehaviour
     {
         cam = Camera.main.gameObject;
 
-        if (ButtonBehaviour.playerCount <= 0) {
-            ButtonBehaviour.playerCount = 2;
-        }
         if (ButtonBehaviour.playerCount == 0) {
             Debug.Log("Player count is 0");
             ButtonBehaviour.playerCount = 2;

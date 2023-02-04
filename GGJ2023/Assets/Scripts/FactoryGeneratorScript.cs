@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FactoryGeneratorScript : MonoBehaviour
 {
-    public float factorySpawnRate = 5;
+    public float factorySpawnRate = 5; // The higher the slower
     public GameObject factory;
 
     public GameObject planet;

@@ -66,24 +66,23 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void Respawn(GameObject originTree) {
-        Debug.Log("RESPAWNING");
         TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
         if (tailScript) {
             // So we don't collide with the old tail, we do it outside the coroutine
-		    tailScript.gameObject.GetComponent<EdgeCollider2D>().enabled = false;
-            
+            Collider2D col = tailScript.gameObject.GetComponent<EdgeCollider2D>();
+		    col.enabled = false;            
+
+            // Old tail shouldn't follow the new head
+            tailScript.DisableDrawing();
+
             // Fade out the old tail
-            StartCoroutine(tailScript.FadeOutAndDestroy());
+            tailScript.BeginFadingOut();
         }
         
-        GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
-        
-        // Disable the collider temporarily
-        newTail.GetComponent<EdgeCollider2D>().enabled = false;
-        StartCoroutine(EnableColliderLater(newTail, 2f));
-
-        newTail.GetComponent<TailScript>().originTree = originTree;
         headTransform.Rotate(new Vector3(0, 0, 180));
+        
+        GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
+        newTail.GetComponent<TailScript>().originTree = originTree;
     }
 
     public void DestroyedFactory()
@@ -91,9 +90,4 @@ public class PlayerScript : MonoBehaviour
         score += logicManager.factoryScore;
     }
 
-    public IEnumerator EnableColliderLater(GameObject tail, float seconds) {
-        yield return new WaitForSeconds(seconds);
-        tail.GetComponent<EdgeCollider2D>().enabled = true;
-    }
-    
 }
