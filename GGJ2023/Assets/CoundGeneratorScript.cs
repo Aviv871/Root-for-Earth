@@ -12,10 +12,7 @@ public class CoundGeneratorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 6; i++)
-        {
-            GenerateCloud(false);
-        }
+        
     }
 
     // Update is called once per frame
