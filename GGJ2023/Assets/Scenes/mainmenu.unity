@@ -346,7 +346,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -482,7 +482,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -1383,7 +1383,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -1518,7 +1518,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -2124,7 +2124,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROOT SUDOS!
+  m_text: Root for Earth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d77a0907f48bce43a4519e99b0a365b, type: 2}
   m_sharedMaterial: {fileID: -2337254385575826386, guid: 1d77a0907f48bce43a4519e99b0a365b, type: 2}
@@ -2259,7 +2259,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: e0f84447337be1447aaedbe41385fe9a, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8039a84df5dbb894c9cf755083435e11, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
