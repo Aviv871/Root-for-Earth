@@ -118,7 +118,7 @@ public class LogicManagerScript : MonoBehaviour
             return;
         }
 
-        // update total score
+        // update total score & detect if all players are dead -> gameover
         if (isGameOver)
         {
             return;
