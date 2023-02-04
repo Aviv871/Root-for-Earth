@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject tailObject;
 
+    public Color color;
+
     void Awake()
     {
         headTransform = GetComponentInChildren<HeadScript>().transform;
