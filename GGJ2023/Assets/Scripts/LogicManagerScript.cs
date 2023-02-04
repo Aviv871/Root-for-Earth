@@ -24,6 +24,8 @@ public class LogicManagerScript : MonoBehaviour
     public GameObject rockObject;
     private bool isGameOver = false;
 
+    public Color[] colors;
+
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
         for (int i = 0; i < startingPositions.Count; i++)
@@ -34,10 +36,16 @@ public class LogicManagerScript : MonoBehaviour
             Debug.Log("Generating player " + i);
             startingPositions[i].gameObject.SetActive(true);
             GameObject player = Instantiate(playerPrefab);
+            Color myColor = colors[i];
+            player.GetComponent<PlayerScript>().color = myColor;
             HeadScript headScript = player.GetComponentInChildren<HeadScript>();
+            headScript.gameObject.GetComponent<SpriteRenderer>().color = myColor;
             headScript.transform.position = startingPositions[i].transform.position;
             headScript.transform.rotation = Quaternion.Euler(0,0,180) * (startingPositions[i].transform.rotation);
             headScript.movementControls = (MovementControls)i;
+
+            TailScript tailScript = player.GetComponentInChildren<TailScript>();
+            tailScript.gameObject.GetComponent<Renderer>().material.color = myColor;
             
             // Assign the originTree from the starting point to the tail in order to be destroyed later
             player.GetComponentInChildren<TailScript>().originTree = startingPositions[i].GetComponentInChildren<SpriteRenderer>().gameObject;
