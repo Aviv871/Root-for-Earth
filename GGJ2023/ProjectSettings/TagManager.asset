@@ -18,7 +18,7 @@ TagManager:
   - UI
   - ObstacleLayer
   - FactoryLayer
-  - 
+  - Drills
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Factories
     uniqueID: 2610967843
+    locked: 0
+  - name: Drills
+    uniqueID: 2048426939
     locked: 0

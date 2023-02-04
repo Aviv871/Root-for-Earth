@@ -87,8 +87,8 @@ public class HeadScript : MonoBehaviour
                 playerScript.DestroyedFactory();
             }
         } else if (other.tag == "Collectable") {
-            playerScript.Collect(other.gameObject);
-        } else if (other.tag == "Obstacle") {
+            GetComponentInParent<PlayerScript>().Collect(other.gameObject);
+        } else if ((other.tag == "Obstacle") || (other.tag == "Target")) {
             Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
             if (gracePeriod <= 0) {
                 playerScript.Collision();
