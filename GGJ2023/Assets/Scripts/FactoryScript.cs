@@ -23,6 +23,9 @@ public class FactoryScript : MonoBehaviour
     }
 
     public IEnumerator turnIntoTree() {
+        // Turn into obstacle now. Not a factory anymore
+        gameObject.tag = "Obstacle";
+
         SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
         for (int i = 0; i < animationFrames.Length; i++)
         {
@@ -34,6 +37,5 @@ public class FactoryScript : MonoBehaviour
             }
             yield return new WaitForSeconds(animationSpeed);
         }
-        
     }
 }
