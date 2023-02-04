@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class drill : MonoBehaviour
+public class Drill : MonoBehaviour
 {
     private GameObject target;
     public float speed = 1f;

@@ -18,7 +18,6 @@ public class DrillFab : MonoBehaviour
     void Start()
     {
         drillRadius = Mathf.Sqrt(Mathf.Pow(drill.GetComponent<BoxCollider2D>().size.x / 2, 2) + Mathf.Pow(drill.GetComponent<BoxCollider2D>().size.y / 2, 2));
-        Debug.Log(drillRadius);
         radius = planet.GetComponent<CircleCollider2D>().radius;
         spawnCounter = drillSpawnRate;
     }
