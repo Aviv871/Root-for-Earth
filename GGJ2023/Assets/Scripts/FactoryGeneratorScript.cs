@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FactoryGeneratorScript : MonoBehaviour
 {
-    public float factorySpawnRate = 5;
+    public float factorySpawnRate = 5; // The higher the slower
     public GameObject factory;
 
     public GameObject planet;
@@ -33,6 +33,7 @@ public class FactoryGeneratorScript : MonoBehaviour
             if (!collision)
             {
                 Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
+                GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>().factoryCount++;
                 spawnCounter = 0;
             }
 
