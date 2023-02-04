@@ -158,8 +158,7 @@ public class LogicManagerScript : MonoBehaviour
         }
     }
     private void GameOver(string reason) {
-        Debug.Log("Game Over");
-        PlayerScript[] players = GetComponents<PlayerScript>();
+        PlayerScript[] players = GameObject.FindObjectsOfType<PlayerScript>();
         foreach (PlayerScript player in players)
         {
             player.Die();
