@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LogicManagerScript : MonoBehaviour
 {
@@ -111,6 +112,10 @@ public class LogicManagerScript : MonoBehaviour
         if (isGameoverInner)
         {
             GameOver();
+        }
+
+        if (Input.GetKey(KeyCode.Escape)) {
+            SceneManager.LoadScene("mainmenu");
         }
     }
     private void GameOver() {
