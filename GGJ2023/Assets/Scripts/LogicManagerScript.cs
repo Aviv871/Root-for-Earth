@@ -21,7 +21,13 @@ public class LogicManagerScript : MonoBehaviour
     public GameObject mainMenuButton;
     public GameObject waterObject;
     public GameObject rockObject;
+    public GameObject cam;
     private bool isGameOver = false;
+
+    public Vector3 targetCamPos;
+    public float smoothTimeCamEffect = 0.3F;
+    private Vector3 velocity = Vector3.zero;
+    private bool inStartCutsence = true;
 
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
@@ -73,6 +79,8 @@ public class LogicManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main.gameObject;
+
         if (ButtonBehaviour.playerCount <= 0) {
             ButtonBehaviour.playerCount = 2;
         }
@@ -91,28 +99,37 @@ public class LogicManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // update total score
-        if (isGameOver)
-        {
-            return;
-        }
-        totalScore = 0;
-        bool isGameoverInner = true;
-        foreach (GameObject player in players)
-        {
-            var player_script = player.GetComponent<PlayerScript>();
-            totalScore += player_script.score;
-            if (player_script.isAlive)
-            {
-                isGameoverInner = false;
+        if (inStartCutsence) {
+            cam.transform.position = Vector3.SmoothDamp(cam.transform.position, targetCamPos, ref velocity, smoothTimeCamEffect);
+            if (Vector3.Distance(cam.transform.position, targetCamPos) < 0.1f) {
+                inStartCutsence = false;
             }
         }
-        scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
-        if (isGameoverInner)
-        {
-            GameOver();
+        else {
+            // update total score
+            if (isGameOver)
+            {
+                return;
+            }
+            totalScore = 0;
+            bool isGameoverInner = true;
+            foreach (GameObject player in players)
+            {
+                var player_script = player.GetComponent<PlayerScript>();
+                totalScore += player_script.score;
+                if (player_script.isAlive)
+                {
+                    isGameoverInner = false;
+                }
+            }
+            scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
+            if (isGameoverInner)
+            {
+                GameOver();
+            }
         }
     }
+
     private void GameOver() {
         Debug.Log("Game Over");
         isGameOver = true;
