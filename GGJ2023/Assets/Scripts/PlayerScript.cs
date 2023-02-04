@@ -53,7 +53,7 @@ public class PlayerScript : MonoBehaviour
     // We delay the destroyment of the object because of its sound effects
     public IEnumerator DelayedDestroy(GameObject obj) {
         obj.GetComponent<SpriteRenderer>().enabled = false;
-        obj.GetComponent<BoxCollider2D>().enabled = false;
+        obj.GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(5);
         Destroy(obj);
     }

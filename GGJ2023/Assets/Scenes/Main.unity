@@ -1703,7 +1703,7 @@ MonoBehaviour:
   totalScore: 0
   factoryScore: 20
   scoreText: {fileID: 253872887}
-  initialWaterCount: 1
+  initialWaterCount: 2
   initialRockCount: 5
   undergroundRadiusObejcts: 2.8
   undergroundDistanceObejcts: 1
