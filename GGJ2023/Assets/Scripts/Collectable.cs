@@ -4,7 +4,6 @@ using UnityEngine;
 
  public enum CollectableItem {
     WATER,
-    ITEM_2,
 }
 
 public class Collectable : MonoBehaviour
