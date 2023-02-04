@@ -84,15 +84,17 @@ public class HeadScript : MonoBehaviour
         }
         var playerScript = GetComponentInParent<PlayerScript>();
         if (other.tag == "Factory") {
+            FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
+            
             if (isInsideFactory) { // already handling one collision with factory, wait until we leave for more
                 return;
             }
-
             isInsideFactory = true;
+
+            
             gracePeriod++;
             StartCoroutine("disableGracePeriod");
             playerScript.Respawn(other.gameObject);
-            FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
                 playerScript.DestroyedFactory();
