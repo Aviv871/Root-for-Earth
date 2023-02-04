@@ -34,7 +34,7 @@ public class FactoryGeneratorScript : MonoBehaviour
             if (!collision)
             {
                 Instantiate(factory, position, Quaternion.AngleAxis(degrees - 90, transform.forward)); 
-                GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>().factoryCount++;
+                GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>().factoryAmount++;
                 spawnCounter = 0;
             }
 
