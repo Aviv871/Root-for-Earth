@@ -41,6 +41,10 @@ public class TailScript : MonoBehaviour
 
 	void Update()
 	{
+		 if (!GetComponentInParent<PlayerScript>().isAlive) {
+			return;
+		 }
+
 		if (points.Count <= 0)
 		{
 			SetPoint();

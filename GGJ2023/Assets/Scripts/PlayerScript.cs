@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour
 
     public float speedBoostFactor = 3f;
     public float speedBoostTime = 3f;
-    public bool isAlive = true;
+    public bool isAlive = false;
 
     public Transform headTransform;
     public float score = 0;
