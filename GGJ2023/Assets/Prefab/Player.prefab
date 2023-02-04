@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 3.62, y: 3.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &193095152801930745
@@ -100,7 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631eec81a69f7704397a5f302f5abed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.45
+  baseForwardSpeed: 0.45
+  forwardSpeedIncreaseRate: 0.1
+  totalForwardSpeed: 0
+  waterSpeedBoost: 1
   angularSpeed: 150
   movementControls: 0
 --- !u!50 &193095152801930746

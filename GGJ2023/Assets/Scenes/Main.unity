@@ -1124,6 +1124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factorySpawnRate: 5
   factory: {fileID: 118299632997452058, guid: 90d3c54b6776855449df1707c23ed5d4, type: 3}
+  factorySpawnRateIncreased: 0.03
   planet: {fileID: 1358003536}
 --- !u!4 &1123654688
 Transform:
@@ -1700,7 +1701,7 @@ MonoBehaviour:
   - {fileID: 1510157695}
   players: []
   totalScore: 0
-  factoryScore: 0
+  factoryScore: 20
   scoreText: {fileID: 253872887}
   waterCount: 5
   rockCount: 5
@@ -1711,6 +1712,7 @@ MonoBehaviour:
   mainMenuButton: {fileID: 1022705658}
   waterObject: {fileID: 8550598668854972421, guid: 4b861ac89bed6b94cb92bb7e10d64d04, type: 3}
   rockObject: {fileID: 1407543103002024214, guid: b762812d32f256f499a35507a93db1b8, type: 3}
+  factoryCount: 0
   colors:
   - {r: 0.6698113, g: 0.5261634, b: 0.3121573, a: 1}
   - {r: 0.33962262, g: 0.2736932, b: 0.23517264, a: 1}
