@@ -84,13 +84,8 @@ public class HeadScript : MonoBehaviour
         }
         var playerScript = GetComponentInParent<PlayerScript>();
         if (other.tag == "Factory") {
+            Debug.Log("HIT FACTORY?");
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
-            
-            if (isInsideFactory) { // already handling one collision with factory, wait until we leave for more
-                return;
-            }
-            isInsideFactory = true;
-
             
             gracePeriod++;
             StartCoroutine("disableGracePeriod");
@@ -114,13 +109,11 @@ public class HeadScript : MonoBehaviour
             Debug.Log("collision with planet");
             GetComponentInParent<PlayerScript>().Collision();
             // TODO: Spwan baby tree
-        } else if (other.tag == "Factory") {
-            isInsideFactory = false;
         }
     }
 
     private IEnumerator disableGracePeriod() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         gracePeriod--;
     }
 }
