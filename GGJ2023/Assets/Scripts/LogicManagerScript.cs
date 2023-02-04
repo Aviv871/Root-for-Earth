@@ -13,8 +13,8 @@ public class LogicManagerScript : MonoBehaviour
     public float totalScore;
     public float factoryScore;
     public TextMeshProUGUI scoreText;
-    public int waterCount;
-    public int rockCount;
+    public int initialWaterCount;
+    public int initialRockCount;
     public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
     public float undergroundDistanceObejcts = 1f; // raius clean of object
     public GameObject gameOverText;
@@ -33,7 +33,9 @@ public class LogicManagerScript : MonoBehaviour
     public Vector3 targetCamPos;
     public float smoothTimeCamEffect = 0.3F;
     private Vector3 velocity = Vector3.zero;
-    private bool inStartCutsence = true;
+    private bool inStartCutscene = true;
+
+    private float waterSpawnAverageRate = 7f;
 
     void generatePlayers(int playerCount) {
         int partialDegrees = 360 / playerCount;
@@ -98,21 +100,23 @@ public class LogicManagerScript : MonoBehaviour
             ButtonBehaviour.playerCount = 2;
         }
         generatePlayers(ButtonBehaviour.playerCount);
-        GenerateUndergroundObjects(waterCount, waterObject);
-        GenerateUndergroundObjects(rockCount, rockObject);
+        GenerateUndergroundObjects(initialWaterCount, waterObject);
+        GenerateUndergroundObjects(initialRockCount, rockObject);
         gameOverText.SetActive(false);
         playAgainButton.SetActive(false);
         mainMenuButton.SetActive(false);
+
+        // Start the collectables invokation chain
+        Invoke("addCollectableLoop", waterSpawnAverageRate);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (inStartCutsence) {
+        if (inStartCutscene) {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, targetCamPos, ref velocity, smoothTimeCamEffect);
             if (Vector3.Distance(cam.transform.position, targetCamPos) < 0.05f) {
-                inStartCutsence = false;
+                inStartCutscene = false;
                 foreach (GameObject player in players) {
                     player.GetComponent<PlayerScript>().isAlive = true;
                 }
@@ -153,5 +157,13 @@ public class LogicManagerScript : MonoBehaviour
         gameOverText.SetActive(true);
         playAgainButton.SetActive(true);
         mainMenuButton.SetActive(true);
+    }
+
+    private void addCollectableLoop() {
+        // Just water for now, aviv made me not support future collectibles :(
+        GenerateUndergroundObjects(1, waterObject);
+
+        // Call this function after a random time
+        Invoke("addCollectableLoop", Random.Range(waterSpawnAverageRate * 0.7f, waterSpawnAverageRate * 1.3f));
     }
 }
