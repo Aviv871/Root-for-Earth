@@ -17,7 +17,8 @@ public class DrillFab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drillRadius = Mathf.Sqrt(Mathf.Pow(drill.GetComponent<BoxCollider2D>().size.x / 2, 2) + Mathf.Pow(drill.GetComponent<BoxCollider2D>().size.y / 2, 2));
+        BoxCollider2D drillBoxCollider = drill.GetComponentInChildren<BoxCollider2D>();
+        drillRadius = Mathf.Sqrt(Mathf.Pow(drillBoxCollider.size.x / 2, 2) + Mathf.Pow(drillBoxCollider.size.y / 2, 2));
         radius = planet.GetComponent<CircleCollider2D>().radius;
         spawnCounter = drillSpawnRate;
     }
@@ -39,7 +40,6 @@ public class DrillFab : MonoBehaviour
             Vector3 position = generatePosition(degrees);
             if (!Physics2D.OverlapCircle(position, drillRadius * 2, LayerMask.GetMask("DrillLayer")))
             {
-                Debug.Log("overlap");
                 Instantiate(drill, position, Quaternion.AngleAxis(degrees - 90, transform.forward));
                 spawnCounter = 0;
             }

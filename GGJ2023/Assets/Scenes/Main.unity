@@ -1999,7 +1999,7 @@ GameObject:
   - component: {fileID: 2104921873}
   - component: {fileID: 2104921872}
   m_Layer: 0
-  m_Name: DrillFab
+  m_Name: DrillFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

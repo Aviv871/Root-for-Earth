@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class Drill : MonoBehaviour
+public class DrillBladeScript : MonoBehaviour
 {
     private GameObject target;
-    public float speed = 1f;
+    private float speed = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,9 @@ public class Drill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if (speed != 0) {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
