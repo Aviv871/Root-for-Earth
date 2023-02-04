@@ -1124,6 +1124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factorySpawnRate: 5
   factory: {fileID: 118299632997452058, guid: 90d3c54b6776855449df1707c23ed5d4, type: 3}
+  factorySpawnRateIncreased: 0.03
   planet: {fileID: 1358003536}
 --- !u!4 &1123654688
 Transform:
@@ -1700,7 +1701,7 @@ MonoBehaviour:
   - {fileID: 1510157695}
   players: []
   totalScore: 0
-  factoryScore: 0
+  factoryScore: 20
   scoreText: {fileID: 253872887}
   waterCount: 5
   rockCount: 5

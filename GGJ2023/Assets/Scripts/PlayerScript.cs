@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
         // individual score
         if (isAlive)
         {
-            score += Time.deltaTime * scoreSpeed * GetComponentInChildren<HeadScript>().forwardSpeed;
+            score += Time.deltaTime * scoreSpeed * GetComponentInChildren<HeadScript>().totalForwardSpeed;
         }
     }
 
@@ -59,9 +59,9 @@ public class PlayerScript : MonoBehaviour
     }
 
     public IEnumerator BoostSpeed() {
-        GetComponentInChildren<HeadScript>().forwardSpeed *= speedBoostFactor;
+        GetComponentInChildren<HeadScript>().waterSpeedBoost = speedBoostFactor;
         yield return new WaitForSeconds(speedBoostTime);
-        GetComponentInChildren<HeadScript>().forwardSpeed /= speedBoostFactor;
+        GetComponentInChildren<HeadScript>().waterSpeedBoost = 1;
 
     }
 

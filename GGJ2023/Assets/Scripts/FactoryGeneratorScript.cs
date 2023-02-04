@@ -6,6 +6,7 @@ public class FactoryGeneratorScript : MonoBehaviour
 {
     public float factorySpawnRate = 5; // The higher the slower
     public GameObject factory;
+    public float factorySpawnRateIncreased = 0.1f; // the higher the faster. between 0 and 1.
 
     public GameObject planet;
 
@@ -42,6 +43,7 @@ public class FactoryGeneratorScript : MonoBehaviour
         {
             spawnCounter+= Time.deltaTime;
         }
+        factorySpawnRate *= (1 - Time.deltaTime * factorySpawnRateIncreased); // incraese rate of factory generate along time
     }
 
     private Vector3 generatePosition(int degrees) 
