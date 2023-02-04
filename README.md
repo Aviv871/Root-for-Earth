@@ -3,8 +3,8 @@ Our entry for Global Game Jam 2023 (Theme: Roots) :tada:
 [GGJ Page](https://google.com)
   
 ## Playing
-Try to stop the polluting factories by destroying them with the growing vegetation roots.
-Help each other, and fight together to save our dear planet.
+Fight together to save our dear planet!
+Try to stop the polluting factories by destroying them with your growing roots. 
   
 ## Controls
 - The game is multilayer, each player can move right and left using: Arrow keys, A/S, O/P, B/N 
