@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +15,13 @@ public class HeadScript : MonoBehaviour
 {
 	private float horizontal;
     
-	public float forwardSpeed;
+	public float baseForwardSpeed;
+    public float forwardSpeedIncreaseRate; // the higher the faster.
+    public float totalForwardSpeed;
+    private float forwardSpeedIncrease = 1;
+    public float waterSpeedBoost = 1;
     [SerializeField]
-	private float angularSpeed; 
+    private float angularSpeed; 
     private EdgeCollider2D col;
 
     public MovementControls movementControls;
@@ -53,16 +58,22 @@ public class HeadScript : MonoBehaviour
         }
 
         if (!isTouched && horizontal == 0) {
-            horizontal = Random.Range(-0.3f, 0.3f);
+            horizontal = UnityEngine.Random.Range(-0.3f, 0.3f);
         } else {
             isTouched = true;
         }
+        forwardSpeedIncrease += forwardSpeedIncreaseRate * Time.deltaTime;
     }
 
     void FixedUpdate() {
         if (GetComponentInParent<PlayerScript>().isAlive) {
-            transform.Translate(Vector2.up * forwardSpeed * Time.fixedDeltaTime, Space.Self);
+            totalForwardSpeed = (baseForwardSpeed + Mathf.Log(forwardSpeedIncrease)) * waterSpeedBoost;
+            transform.Translate(Vector2.up * totalForwardSpeed * Time.fixedDeltaTime, Space.Self);
             transform.Rotate(Vector3.forward * - horizontal * angularSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            totalForwardSpeed = 0;
         }
     }
 
