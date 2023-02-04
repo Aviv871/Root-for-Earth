@@ -17,7 +17,7 @@ public class LogicManagerScript : MonoBehaviour
     public int initialRockCount;
     public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
     public float undergroundDistanceObejcts = 1f; // raius clean of object
-    public GameObject gameOverText;
+    public GameObject gameOverObject;
     public GameObject gameOverReasonText;
     public GameObject playAgainButton;
     public GameObject mainMenuButton;
@@ -104,9 +104,8 @@ public class LogicManagerScript : MonoBehaviour
         generatePlayers(ButtonBehaviour.playerCount);
         GenerateUndergroundObjects(initialWaterCount, waterObject);
         GenerateUndergroundObjects(initialRockCount, rockObject);
-        gameOverText.SetActive(false);
-        playAgainButton.SetActive(false);
-        mainMenuButton.SetActive(false);
+
+        gameOverObject.SetActive(false);
 
         // Start the collectables invokation chain
         Invoke("addCollectableLoop", waterSpawnAverageRate);
@@ -165,11 +164,8 @@ public class LogicManagerScript : MonoBehaviour
             player.Die();
         }
         isGameOver = true;
-        gameOverText.SetActive(true);
-        gameOverReasonText.SetActive(true);
+        gameOverObject.SetActive(true);
         gameOverReasonText.GetComponent<TextMeshProUGUI>().text = reason;
-        playAgainButton.SetActive(true);
-        mainMenuButton.SetActive(true);
     }
 
     private void addCollectableLoop() {
