@@ -83,6 +83,7 @@ public class PlayerScript : MonoBehaviour
         
         GameObject newTail = Instantiate(tailObject, Vector3.zero, Quaternion.identity, transform);
         newTail.GetComponent<TailScript>().originTree = originTree;
+        newTail.GetComponent<Renderer>().material.color = color;
     }
 
     public void DestroyedFactory()

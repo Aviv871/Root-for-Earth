@@ -14,7 +14,7 @@ public class HeadScript : MonoBehaviour
 {
 	private float horizontal;
     
-	public float forwardSpeed; 
+	public float forwardSpeed;
     [SerializeField]
 	private float angularSpeed; 
     private EdgeCollider2D col;
@@ -71,7 +71,7 @@ public class HeadScript : MonoBehaviour
         if (sound) {
             sound.Play();
         }
-
+        var playerScript = GetComponentInParent<PlayerScript>();
         if (other.tag == "Factory") {
             if (isInsideFactory) { // already handling one collision with factory, wait until we leave for more
                 return;
@@ -80,18 +80,18 @@ public class HeadScript : MonoBehaviour
             isInsideFactory = true;
             gracePeriod++;
             StartCoroutine("disableGracePeriod");
-            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
+            playerScript.Respawn(other.gameObject);
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
-                GetComponentInParent<PlayerScript>().DestroyedFactory();
+                playerScript.DestroyedFactory();
             }
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if ((other.tag == "Obstacle") || (other.tag == "Target")) {
             Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
             if (gracePeriod <= 0) {
-                GetComponentInParent<PlayerScript>().Collision();
+                playerScript.Collision();
             }
         }
     }
