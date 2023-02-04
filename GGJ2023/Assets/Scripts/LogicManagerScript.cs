@@ -24,6 +24,8 @@ public class LogicManagerScript : MonoBehaviour
     public GameObject rockObject;
     private bool isGameOver = false;
 
+    public int factoryCount = 0;
+
     public Color[] colors;
 
     public GameObject cam;
