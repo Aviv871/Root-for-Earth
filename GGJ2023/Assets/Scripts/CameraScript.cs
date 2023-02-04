@@ -6,6 +6,8 @@ public class CameraScript : MonoBehaviour
 {
     Camera cm;
 
+    public float colorChangeSpeed;
+
     private LogicManagerScript logicManager;
 
     // Start is called before the first frame update
@@ -33,6 +35,6 @@ public class CameraScript : MonoBehaviour
         float h, s, v;
         Color.RGBToHSV(startColor, out h, out s, out v);
         Color endColor = Color.HSVToRGB(h, s, value);
-        cm.backgroundColor = Color.Lerp(startColor, endColor, Time.deltaTime * 10);
+        cm.backgroundColor = Color.Lerp(startColor, endColor, Time.deltaTime * colorChangeSpeed);
     }
 }

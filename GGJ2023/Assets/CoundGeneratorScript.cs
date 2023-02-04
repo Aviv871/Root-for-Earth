@@ -8,6 +8,7 @@ public class CoundGeneratorScript : MonoBehaviour
     public Vector3 basePosition;
     public float cloudSpawnRate;
     private float spawnCount = 0;
+    private float depth = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,9 @@ public class CoundGeneratorScript : MonoBehaviour
 
     private void GenerateCloud(bool withFadeIn = true)
     {
-        GameObject newCloud = Instantiate(cloud, basePosition, Quaternion.identity);
+        Vector3 position = new Vector3(basePosition.x, basePosition.y, basePosition.z + depth);
+        depth += 0.01f;
+        GameObject newCloud = Instantiate(cloud, position, Quaternion.identity);
         CloudScript cloudScript = newCloud.GetComponent<CloudScript>();
         cloudScript.radius = Random.Range(8, 12);
         cloudScript.angle = Random.Range(0, 360);

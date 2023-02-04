@@ -368,7 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloud: {fileID: 5064369197664819357, guid: db48a030f041f2f46bc5c6c8a24b5d6e, type: 3}
   basePosition: {x: 0, y: 0, z: 0}
-  cloudSpawnRate: 2
+  cloudSpawnRate: 1.5
 --- !u!4 &64290840
 Transform:
   m_ObjectHideFlags: 0
@@ -832,6 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c13135ebc6c74978a8e0e520ad00edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorChangeSpeed: 0.2
 --- !u!1 &542785060
 GameObject:
   m_ObjectHideFlags: 0
