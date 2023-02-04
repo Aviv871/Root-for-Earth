@@ -20,6 +20,7 @@ public class HeadScript : MonoBehaviour
     public float totalForwardSpeed;
     private float forwardSpeedIncrease = 1;
     public float waterSpeedBoost = 1;
+    public float speedPlayerMultiplier;
     [SerializeField]
     private float angularSpeed; 
     private EdgeCollider2D col;
@@ -30,8 +31,6 @@ public class HeadScript : MonoBehaviour
 
     // If set to true, can't collide with anything.
     private int gracePeriod = 0;
-
-    private bool isInsideFactory = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +61,12 @@ public class HeadScript : MonoBehaviour
         } else {
             isTouched = true;
         }
-        forwardSpeedIncrease += forwardSpeedIncreaseRate * Time.deltaTime;
+        forwardSpeedIncrease += speedPlayerMultiplier * forwardSpeedIncreaseRate * Time.deltaTime;
     }
 
     void FixedUpdate() {
         if (GetComponentInParent<PlayerScript>().isAlive) {
-            totalForwardSpeed = baseForwardSpeed * waterSpeedBoost + Mathf.Log(forwardSpeedIncrease);
+            totalForwardSpeed = speedPlayerMultiplier * baseForwardSpeed * waterSpeedBoost + Mathf.Log(forwardSpeedIncrease);
             transform.Translate(Vector2.up * totalForwardSpeed * Time.fixedDeltaTime, Space.Self);
             transform.Rotate(Vector3.forward * - horizontal * angularSpeed * Time.fixedDeltaTime);
         }
