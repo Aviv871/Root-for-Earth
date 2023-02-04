@@ -104,6 +104,7 @@ MonoBehaviour:
   forwardSpeedIncreaseRate: 0.1
   totalForwardSpeed: 0
   waterSpeedBoost: 1
+  speedPlayerMultiplier: 0
   angularSpeed: 150
   movementControls: 0
 --- !u!50 &193095152801930746
@@ -376,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429518962175323715, guid: 9fa8bbf48e307409bbb3733aba9aa36c, type: 3}
       propertyPath: smallBranchSpacing
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
