@@ -23,6 +23,9 @@ public class HeadScript : MonoBehaviour
 
     private bool isTouched;
 
+    // If set to true, can't collide with anything.
+    private bool gracePeriod = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,26 +71,35 @@ public class HeadScript : MonoBehaviour
         }
 
         if (other.tag == "Factory") {
-            // Destroy(other.gameObject);
+            gracePeriod = true;
+            StartCoroutine("disableGracePeriod");
+            Debug.Log("Caught collision with factory");
+            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
             FactoryScript factoryScript = other.gameObject.GetComponent<FactoryScript>();
             if (factoryScript) {
                 StartCoroutine(factoryScript.turnIntoTree());
                 GetComponentInParent<PlayerScript>().DestroyedFactory();
             }
-            GetComponentInParent<PlayerScript>().Respawn(other.gameObject);
         } else if (other.tag == "Collectable") {
             GetComponentInParent<PlayerScript>().Collect(other.gameObject);
         } else if ((other.tag == "Obstacle") || (other.tag == "Target")) {
-            Debug.Log("collision " + other.gameObject.name);
-            GetComponentInParent<PlayerScript>().Collision();
+            Debug.Log("collision " + other.gameObject.name + " at x " + other.gameObject.transform.position.x);
+            if (!gracePeriod) {
+                GetComponentInParent<PlayerScript>().Collision();
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Planet") {
-            Debug.Log("collision " + other.gameObject.name);
+            Debug.Log("collision with planet");
             GetComponentInParent<PlayerScript>().Collision();
             // TODO: Spwan baby tree
         }
+    }
+
+    private IEnumerator disableGracePeriod() {
+        yield return new WaitForSeconds(2);
+        gracePeriod = false;
     }
 }

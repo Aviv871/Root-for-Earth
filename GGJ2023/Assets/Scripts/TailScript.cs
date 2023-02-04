@@ -81,28 +81,11 @@ public class TailScript : MonoBehaviour
 	public void DisableDrawing()
 	{
 		isDrawing = false;
-		StartCoroutine(SynchronizeCollider());
-	}
-
-	IEnumerator SynchronizeCollider()
-	{
-		yield return new WaitForSeconds(0.2f);
-
-		if (points.Count > 1)
-		{
-			col.points = points.ToArray<Vector2>();
-		}
 	}
 
 	public IEnumerator FadeOutAndDestroy() {
 		// Old tail shouldn't follow the new head
 		DisableDrawing();
-
-		// // Remove all the small heads
-		// foreach (GameObject smallBranch in smallBranches)
-		// {
-		// 	Destroy(smallBranch.GetComponentInChildren<BranchHeadScript>().gameObject);
-		// }
 
 		for (int i = 0; i < fadeOutSteps; i++)
 		{
@@ -124,7 +107,6 @@ public class TailScript : MonoBehaviour
 
 					// Fade out the small branch tails
 					fadeOutGradient = GetLineGradientFadeOut(lineRenderer, i, fadeOutStepsForSmallBranches, true);
-					Debug.Log("Step " + i + " out of " + fadeOutStepsForSmallBranches + " for small branches, gradient = " + fadeOutGradient.alphaKeys[1].time.ToString());
 					smallBranch.gameObject.GetComponentInChildren<LineRenderer>().colorGradient = fadeOutGradient;
 				}
 			}
@@ -137,12 +119,13 @@ public class TailScript : MonoBehaviour
 			Destroy(smallBranch.gameObject);
 		}
 
-		Destroy(gameObject);
 
 		if (originTree) {
 			Destroy(originTree);
 		}
 
+		Debug.Log("Destroying a tail!");
+		Destroy(gameObject);
 	}
 
   private Gradient GetLineGradientFadeOut(LineRenderer lineRenderer, int step, int totalSteps, bool reverseDirection = false)
@@ -168,7 +151,6 @@ public class TailScript : MonoBehaviour
 
 	fadeOutGradient.colorKeys = lineRenderer.colorGradient.colorKeys;
 
-	Debug.Log("Step = " + step.ToString() + "Alpha time: " + alphaKey[1].time.ToString());
 	return fadeOutGradient;
   }
 }

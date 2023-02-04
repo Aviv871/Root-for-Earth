@@ -14,7 +14,7 @@ public class FactoryGeneratorScript : MonoBehaviour
     private float spawnCounter;
     private float factoryRadius;
 
-    // Start is called before the first frame update0
+    // Start is called before the first frame update
     void Start()
     {
         factoryRadius = Mathf.Sqrt(Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.x/2, 2) + Mathf.Pow(factory.GetComponent<BoxCollider2D>().size.y/2, 2));

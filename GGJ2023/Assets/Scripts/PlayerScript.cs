@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    public float speedBoostFactor = 1.5f;
+    public float speedBoostFactor = 3f;
     public float speedBoostTime = 3f;
     public bool isAlive = true;
 
@@ -64,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void Respawn(GameObject originTree) {
+        Debug.Log("RESPAWNING");
         TailScript tailScript = gameObject.GetComponentInChildren<TailScript>();
         if (tailScript) {
             // So we don't collide with the old tail, we do it outside the coroutine
