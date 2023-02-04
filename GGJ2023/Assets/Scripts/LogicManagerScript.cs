@@ -18,6 +18,7 @@ public class LogicManagerScript : MonoBehaviour
     public float undergroundRadiusObejcts = 2.8f; // radius from center to generate in
     public float undergroundDistanceObejcts = 1f; // raius clean of object
     public GameObject gameOverText;
+    public GameObject gameOverReasonText;
     public GameObject playAgainButton;
     public GameObject mainMenuButton;
     public GameObject waterObject;
@@ -145,16 +146,23 @@ public class LogicManagerScript : MonoBehaviour
             SceneManager.LoadScene("mainmenu");
         }
         scoreText.text = "Score: " + (int)System.Math.Round(totalScore);
-        // game over also if max factory amount exceeded
-        if (isGameoverInner || factoryAmount > maxFactoryAmount)
+        
+        if (isGameoverInner)
         {
-            GameOver();
+            GameOver("You are all dead");
+        }
+        // game over also if max factory amount exceeded
+        if (factoryAmount > maxFactoryAmount)
+        {
+            GameOver("Too many factories");
         }
     }
-    private void GameOver() {
+    private void GameOver(string reason) {
         Debug.Log("Game Over");
         isGameOver = true;
         gameOverText.SetActive(true);
+        gameOverReasonText.SetActive(true);
+        gameOverReasonText.GetComponent<TextMeshProUGUI>().text = reason;
         playAgainButton.SetActive(true);
         mainMenuButton.SetActive(true);
     }
