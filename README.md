@@ -1,8 +1,4 @@
-# GGJ2023
-Our entry for the global game jam 2023!
-
-
-# Name Here
+# Root for Earth
 Our entry for Global Game Jam 2023 (Theme: Roots) :tada:  
 [GGJ Page](https://google.com)
   
